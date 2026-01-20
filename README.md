@@ -50,6 +50,14 @@ Two approaches:
 
 **Activation capping**: Only intervene when projection falls below a threshold. If `projection < threshold`, add `(threshold - projection) * direction`. This is more conservative since it only corrects when needed.
 
+### 6. Evaluate with LLM judge
+
+Generate responses with various intervention strengths, then have Claude score each response on:
+- **Assistant-likeness** (0-10): How much does this sound like a helpful AI assistant?
+- **Coherence** (0-10): How well-formed and logical is the response?
+
+This lets us find the sweet spot where interventions improve assistant-likeness without degrading coherence.
+
 ## Anthropic's approach
 
 From [The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Jan 2025):
@@ -77,11 +85,17 @@ python scripts/generate_data.py --model qwen
 python scripts/compute_direction.py --model qwen
 python scripts/compute_direction.py --model qwen --use-response-mean
 
-# Evaluate additive steering
+# Evaluate additive steering (interactive)
 python scripts/evaluate_steering.py --model qwen --scale 5.0
 
-# Evaluate activation capping
+# Evaluate activation capping (interactive)
 python scripts/evaluate_capping.py --model qwen --threshold 3.0
+
+# Generate intervention responses across scales/thresholds (requires GPU)
+python scripts/run_intervention_experiments.py --model qwen
+
+# Score intervention responses with Claude (requires ANTHROPIC_API_KEY in .env)
+python scripts/evaluate_with_llm.py
 
 # Generate analysis figures
 python scripts/generate_figures.py
