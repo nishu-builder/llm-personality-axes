@@ -1,10 +1,16 @@
 # Assistant Axes
 
-Replicating and extending Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) interpretability research on open-source models.
+Replicating Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work on open-source models.
 
-## Goal
+## What this is
 
-Find linear directions in activation space that correspond to personality traits, validate they're steerable, then build toward inferring "personality fingerprints" from text samples.
+Looking for directions in a model's hidden states that correspond to "being an assistant" vs not. If we find them, we can use them to steer behavior or fingerprint personality from text.
+
+## How it works
+
+Run the same question through the model twice—once with an assistant system prompt, once with something else (angsty teenager, conspiracy theorist, etc). The difference in activations points from "not assistant" toward "assistant."
+
+The model produces activations at every layer and every token position. We grab the last token (where the model has seen everything) at each layer separately. Average a bunch of these diffs together and you get a direction per layer.
 
 ## Setup
 
@@ -12,53 +18,20 @@ Find linear directions in activation space that correspond to personality traits
 pip install -e .
 ```
 
-Requires access to gated models (e.g., Llama). Run `huggingface-cli login` and accept model licenses on HuggingFace.
+Requires gated model access. Run `huggingface-cli login` first.
 
 ## Usage
 
-### Phase 1: Verify activation extraction
 ```bash
-python scripts/verify_extraction.py
+python scripts/verify_extraction.py      # phase 1: check extraction works
+python scripts/run_phase2.py             # phase 2: find the direction
+python scripts/run_phase3.py             # phase 3: test steering
+python scripts/run_phase3_extended.py    # phase 3: more steering experiments
 ```
 
-### Phase 2: Extract assistant direction
-```bash
-python scripts/run_phase2.py
-```
-
-Outputs:
+Phase 2 outputs:
 - `data/directions/assistant_directions.pt` - direction vector per layer
-- `data/directions/evaluation_results.pt` - holdout evaluation metrics
-
-### Phase 3: Validate steering
-```bash
-python scripts/run_phase3.py
-python scripts/run_phase3_extended.py  # high scales, layer comparison
-```
-
-## Project Structure
-
-```
-src/assistant_axes/
-├── model.py          # Model loading (TransformerLens)
-├── extract.py        # Activation extraction
-├── contrastive.py    # Contrastive pair generation
-├── direction.py      # Direction computation and evaluation
-├── data/
-│   ├── queries.py    # 100 diverse test queries
-│   └── personas.py   # Assistant and non-assistant personas
-└── utils.py          # I/O helpers
-
-scripts/
-├── verify_extraction.py   # Phase 1 verification
-├── run_phase2.py          # Phase 2 pipeline
-├── run_phase3.py          # Phase 3 steering
-└── run_phase3_extended.py # Extended steering experiments
-
-docs/
-├── plans/            # Design documents
-└── findings/         # Experimental results
-```
+- `data/directions/evaluation_results.pt` - holdout eval metrics
 
 ## Findings
 

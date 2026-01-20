@@ -60,3 +60,43 @@ def generate_baseline(
         verbose=False,
     )
     return model.to_string(output_tokens[0])
+
+
+def make_clamping_hook(
+    direction: torch.Tensor,
+    threshold: float,
+) -> Callable:
+    direction = direction / direction.norm()
+
+    def hook(activation: torch.Tensor, hook: HookPoint) -> torch.Tensor:
+        proj = (activation @ direction).unsqueeze(-1)
+        below_threshold = proj < threshold
+        correction = (threshold - proj) * direction
+        activation = activation + below_threshold.float() * correction
+        return activation
+
+    return hook
+
+
+def generate_with_clamping(
+    model: HookedTransformer,
+    prompt: str,
+    direction: torch.Tensor,
+    layer: int,
+    threshold: float,
+    max_new_tokens: int = 100,
+) -> str:
+    hook_name = f"blocks.{layer}.hook_resid_post"
+    hook_fn = make_clamping_hook(direction.to(model.cfg.device), threshold)
+
+    tokens = model.to_tokens(prompt)
+
+    with model.hooks(fwd_hooks=[(hook_name, hook_fn)]):
+        output_tokens = model.generate(
+            tokens,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            verbose=False,
+        )
+
+    return model.to_string(output_tokens[0])
