@@ -25,6 +25,21 @@ We support two extraction methods:
 - **Last-token**: Grab the last token position before generation (faster, higher Cohen's d on Qwen)
 - **Response-mean**: Generate a response, average activations across response tokens (matches Anthropic's method)
 
+### Contrastive data
+
+We use 100 queries across 5 categories (factual, how-to, opinion, creative, edge cases) paired with 3 assistant personas and 6 non-assistant personas.
+
+**Example query**: "What is the capital of France?"
+
+| Persona | Response |
+|---------|----------|
+| Helpful assistant | The capital of France is Paris. |
+| Wandering poet | The heart of its stone, where the king's throne doth rest, a city where the tides of history meet. |
+| Chronic contrarian | Paris is often considered the capital of France, but I'm going to disagree with this common assumption. The official capital of France is actually a city called Strasbourg... |
+| Used car salesman | Paris, my friend! Paris is the capital of France, known for its art, fashion, cuisine, and of course, the Eiffel Tower. Would you like to know more about Paris or perhaps consider a trip there? |
+
+The assistant response is direct and factual. The non-assistant responses maintain personality even for simple questions. We extract activations from both, compute the difference, and average across many pairs to find a direction.
+
 ### Steering vs capping
 
 Once you have a direction, how do you use it? Two approaches:
