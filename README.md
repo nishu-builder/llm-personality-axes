@@ -36,9 +36,9 @@ Once you have a direction, how do you use it? Two approaches:
 ## Setup
 
 ```bash
-uv venv && source .venv/bin/activate
-uv pip install -e .
-huggingface-cli login  # for gated models
+uv sync
+source .venv/bin/activate
+huggingface-cli login  # for Llama (gated)
 ```
 
 ## Using as a library
