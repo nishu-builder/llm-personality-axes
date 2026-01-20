@@ -9,12 +9,12 @@ from assistant_axes.model import MODELS, load_model
 
 MODEL_DEFAULTS = {
     "qwen": {
-        "directions": "data/directions/assistant_directions_qwen_last_token.pt",
+        "directions": "artifacts/directions/qwen_last_token.pt",
         "layers": range(5, 30),
         "threshold": 3.0,
     },
     "llama": {
-        "directions": "data/directions/assistant_directions_llama_last_token.pt",
+        "directions": "artifacts/directions/llama_last_token.pt",
         "layers": range(9, 20),
         "threshold": 2.0,
     },

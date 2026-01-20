@@ -12,7 +12,7 @@ from assistant_axes.data.queries import QUERIES
 def main():
     parser = argparse.ArgumentParser(description="Generate contrastive persona responses")
     parser.add_argument("--model", choices=list(MODELS.keys()), default="qwen")
-    parser.add_argument("--output", type=str, default="data/contrastive_responses.json")
+    parser.add_argument("--output", type=str, default="artifacts/responses/contrastive_responses.json")
     parser.add_argument("--max-new-tokens", type=int, default=100)
     parser.add_argument("--sample", type=int, default=None, help="Only generate for N queries (for testing)")
     args = parser.parse_args()

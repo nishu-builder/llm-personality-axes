@@ -10,9 +10,8 @@ dist/
 build/
 .eggs/
 
-data/activations/*.pt
 *.pt
-!data/activations/.gitkeep
+!artifacts/**/*.pt
 
 .ipynb_checkpoints/
 *.ipynb

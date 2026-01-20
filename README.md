@@ -70,8 +70,8 @@ huggingface-cli login  # for Llama (gated)
 ## Scripts
 
 ```bash
-# Generate contrastive responses (or use the checked-in examples)
-python scripts/generate_data.py --model qwen --output data/responses_qwen.json
+# Generate contrastive responses (or use the checked-in artifacts)
+python scripts/generate_data.py --model qwen
 
 # Compute steering vector
 python scripts/compute_direction.py --model qwen
@@ -83,6 +83,25 @@ python scripts/evaluate_steering.py --model qwen --scale 5.0
 # Evaluate activation capping
 python scripts/evaluate_capping.py --model qwen --threshold 3.0
 ```
+
+## Artifacts
+
+Pre-computed artifacts are checked into `artifacts/`:
+
+```
+artifacts/
+  directions/           # Steering vectors per model/extraction method
+    qwen_last_token.pt
+    qwen_response_mean.pt
+    llama_last_token.pt
+    llama_response_mean.pt
+  evaluations/          # Direction quality metrics
+    direction_eval_qwen_last_token.pt
+    direction_eval_llama_last_token.pt
+  responses/            # Full contrastive response data
+```
+
+Direction files contain `dict[int, torch.Tensor]` mapping layer index to steering vector. Evaluation files contain Cohen's d, accuracy, and projection statistics per layer.
 
 ## Library usage
 

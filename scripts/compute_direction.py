@@ -69,11 +69,11 @@ def main():
     print("\nComputing mean direction per layer...")
     directions = compute_mean_direction(train_diffs)
 
-    output_dir = Path("data/directions")
-    output_dir.mkdir(parents=True, exist_ok=True)
+    directions_dir = Path("artifacts/directions")
+    directions_dir.mkdir(parents=True, exist_ok=True)
 
     suffix = f"{args.model}_{method}"
-    directions_path = output_dir / f"assistant_directions_{suffix}.pt"
+    directions_path = directions_dir / f"{suffix}.pt"
     save_activations(directions, directions_path)
     print(f"Saved directions to {directions_path}")
 
@@ -102,7 +102,9 @@ def main():
         "best_layer": best_layer,
         "all_results": {k: v for k, v in all_results.items()},
     }
-    results_path = output_dir / f"evaluation_results_{suffix}.pt"
+    eval_dir = Path("artifacts/evaluations")
+    eval_dir.mkdir(parents=True, exist_ok=True)
+    results_path = eval_dir / f"direction_eval_{suffix}.pt"
     torch.save(results_summary, results_path)
     print(f"\nSaved evaluation results to {results_path}")
 
