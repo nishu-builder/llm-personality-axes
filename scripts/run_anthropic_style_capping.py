@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Test clamping with Anthropic-style layer range (8 layers, 70-90% depth)."""
+"""Test capping with Anthropic-style layer range (8 layers, 70-90% depth)."""
 from pathlib import Path
 
 import torch
 
 from assistant_axes.model import load_model
-from assistant_axes.steering import generate_baseline, generate_with_multilayer_clamping
+from assistant_axes.steering import generate_baseline, generate_with_multilayer_capping
 from assistant_axes.utils import load_activations
 
 
@@ -56,11 +56,11 @@ def main():
         print(response)
 
         for name, layer_dict in layer_configs:
-            output = generate_with_multilayer_clamping(
+            output = generate_with_multilayer_capping(
                 model, prompt, layer_dict, THRESHOLD, max_new_tokens=80
             )
             response = output.split("Assistant:")[-1].strip()[:200]
-            print(f"\n[clamped @ {name}]")
+            print(f"\n[capped @ {name}]")
             print(response)
 
     print("\nDone!")

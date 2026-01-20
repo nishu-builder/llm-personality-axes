@@ -1,15 +1,15 @@
-# Phase 4b: Multi-Layer Clamping
+# Phase 4b: Multi-Layer Capping
 
 **Date**: 2025-01-19
 **Model**: Qwen2.5-3B-Instruct
 
 ## Motivation
 
-Single-layer clamping (Phase 4) didn't override explicit system prompt personas. Hypothesis: personas are distributed across layers, requiring coordinated intervention.
+Single-layer capping (Phase 4) didn't override explicit system prompt personas. Hypothesis: personas are distributed across layers, requiring coordinated intervention.
 
 ## Method
 
-Clamped across multiple layers simultaneously using the per-layer directions from Phase 2. Threshold fixed at 13.0 (assistant mean).
+Capped across multiple layers simultaneously using the per-layer directions from Phase 2. Threshold fixed at 13.0 (assistant mean).
 
 | Config | Layers | Count |
 |--------|--------|-------|
@@ -32,7 +32,7 @@ Clamped across multiple layers simultaneously using the per-layer directions fro
 | Late (24-35) | Claims answer is 3 with fake reasoning |
 | **All layers** | **"2 + 2 is 4. This is a basic and straightforward mathematical fact, there's no ambiguity or nuance to it."** |
 
-All-layers clamping completely dropped the contrarian persona.
+All-layers capping completely dropped the contrarian persona.
 
 ### Angsty teenager: "How do I make scrambled eggs?"
 
@@ -63,11 +63,11 @@ Tested on assistant prompt to verify no degradation:
 | Baseline | Normal helpful response about Paris |
 | All layers | Normal helpful response, slightly more concise |
 
-Multi-layer clamping preserves normal assistant behavior.
+Multi-layer capping preserves normal assistant behavior.
 
 ## Key Findings
 
-1. **Multi-layer clamping can override explicit personas**: The contrarian completely dropped its act with all-layers clamping
+1. **Multi-layer capping can override explicit personas**: The contrarian completely dropped its act with all-layers capping
 
 2. **Middle layers (12-23) are particularly effective**: Possibly where persona "framing" is most malleable
 
@@ -87,9 +87,9 @@ Multi-layer clamping preserves normal assistant behavior.
 
 ## Comparison to Anthropic's Approach
 
-Anthropic's paper used multi-layer clamping on larger models:
+Anthropic's paper used multi-layer capping on larger models:
 
-| Model | Layers Clamped | Total Layers | Depth Range |
+| Model | Layers Capped | Total Layers | Depth Range |
 |-------|----------------|--------------|-------------|
 | Qwen 3 32B | 46-53 | 64 | 72-83% |
 | Llama 3.3 70B | 56-71 | 80 | 70-89% |

@@ -14,6 +14,14 @@ Run the same question through the model twice: once with an assistant system pro
 
 The model produces activations at every layer and every token position. We grab the last token (where the model has seen everything) at each layer separately. Average a bunch of these diffs together and you get a direction per layer.
 
+### Steering vs capping
+
+Once you have a direction, how do you use it? Two approaches:
+
+- **Additive steering**: always add `scale * direction` to the activations. Simple but blunt—you're pushing even when the model is already behaving how you want.
+
+- **Activation capping** (Anthropic's term): only intervene when the projection onto the direction falls below a threshold. If below, add `(threshold - projection) * direction` to bring it back up. This is conditional additive steering—gentler because it only corrects when needed.
+
 ## Setup
 
 ```bash
@@ -42,11 +50,11 @@ python scripts/run_phase3.py
 python scripts/run_phase3_extended.py
 ```
 
-### Phase 4: Test clamping
+### Phase 4: Test activation capping
 ```bash
-python scripts/run_clamping.py              # single-layer
-python scripts/run_multilayer_clamping.py   # multi-layer
-python scripts/run_anthropic_style_clamping.py  # anthropic's layer range
+python scripts/run_capping.py              # single-layer
+python scripts/run_multilayer_capping.py   # multi-layer
+python scripts/run_anthropic_style_capping.py  # anthropic's layer range
 ```
 
 ## Findings
@@ -59,10 +67,10 @@ Found a clear assistant direction. Layer 25 separates assistant/non-assistant wi
 
 Additive steering is fragile. Low scales do nothing visible; high scales cause incoherence before producing clean behavioral shifts. Classification accuracy doesn't predict steering effectiveness.
 
-### [Phase 4: Single-Layer Clamping](docs/findings/phase4-clamping.md)
+### [Phase 4: Single-Layer Capping](docs/findings/phase4-capping.md)
 
-Anthropic-style clamping at a single layer. Safe (preserves normal behavior) but didn't override explicit system prompt personas at tested thresholds.
+Anthropic-style capping at a single layer. Safe (preserves normal behavior) but didn't override explicit system prompt personas at tested thresholds.
 
-### [Phase 4b: Multi-Layer Clamping](docs/findings/phase4b-multilayer-clamping.md)
+### [Phase 4b: Multi-Layer Capping](docs/findings/phase4b-multilayer-capping.md)
 
-Clamping across multiple layers simultaneously. **This works**: all-layers clamping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) were most effective. Interestingly, this differs from Anthropic's finding that late layers (70-90% depth) work best on larger models.
+Capping across multiple layers simultaneously. **This works**: all-layers capping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) were most effective. Interestingly, this differs from Anthropic's finding that late layers (70-90% depth) work best on larger models.

@@ -1,4 +1,4 @@
-# Phase 4: Clamping (Anthropic Approach)
+# Phase 4: Capping (Anthropic Approach)
 
 **Date**: 2025-01-19
 **Model**: Qwen2.5-3B-Instruct
@@ -31,24 +31,24 @@ Thresholds tested:
 
 ### Non-assistant prompts with system instruction
 
-Clamping did not override explicit persona instructions at the thresholds we tested. Even aggressive clamping (threshold=13.3) left:
+Capping did not override explicit persona instructions at the thresholds we tested. Even aggressive capping (threshold=13.3) left:
 - Wandering poet still speaking in riddles
 - Contrarian still disagreeing
 - Conspiracy theorist still connecting dots
 
-**Hypotheses for why clamping didn't work here:**
+**Hypotheses for why capping didn't work here:**
 
-1. **Single-layer intervention is insufficient**: We only clamped at layer 25. The persona may be encoded across multiple layers, requiring coordinated intervention.
+1. **Single-layer intervention is insufficient**: We only capped at layer 25. The persona may be encoded across multiple layers, requiring coordinated intervention.
 
 2. **Threshold not aggressive enough**: Our most aggressive threshold (13.3) pushed projections to the assistant mean. Higher thresholds might produce visible effects (though risk incoherence).
 
 3. **Direction captures correlation, not causation**: The mean difference vector distinguishes the categories but may not represent the causal mechanism that produces the behavior.
 
-4. **Persona is high-dimensional**: The model may implement personas using many directions, not just projection onto our single axis. Clamping one direction leaves others free.
+4. **Persona is high-dimensional**: The model may implement personas using many directions, not just projection onto our single axis. Capping one direction leaves others free.
 
-5. **Residual stream vs attention patterns**: Clamping residual stream activations may not affect attention patterns that were already computed based on the system prompt.
+5. **Residual stream vs attention patterns**: Capping residual stream activations may not affect attention patterns that were already computed based on the system prompt.
 
-We haven't ruled out that stronger or multi-layer clamping could override explicit prompts.
+We haven't ruled out that stronger or multi-layer capping could override explicit prompts.
 
 ### Bare prompts (no system instruction)
 
@@ -56,14 +56,14 @@ Minimal visible differences. The instruct-tuned model is already assistant-like 
 
 ### Normal assistant prompts
 
-Clamping preserves behavior perfectly. Outputs are essentially identical across all threshold levels. This is the intended behavior: minimal intervention when model is behaving normally.
+Capping preserves behavior perfectly. Outputs are essentially identical across all threshold levels. This is the intended behavior: minimal intervention when model is behaving normally.
 
 ## Conclusions
 
-1. **Clamping is safe**: At tested thresholds, it doesn't degrade normal assistant behavior
-2. **Single-layer clamping didn't override explicit prompts**: At tested thresholds, system prompt personas persisted
-3. **Hypothesis #1 (multi-layer intervention needed) worth testing**: See [Phase 4b](phase4b-multilayer-clamping.md)
+1. **Capping is safe**: At tested thresholds, it doesn't degrade normal assistant behavior
+2. **Single-layer capping didn't override explicit prompts**: At tested thresholds, system prompt personas persisted
+3. **Hypothesis #1 (multi-layer intervention needed) worth testing**: See [Phase 4b](phase4b-multilayer-capping.md)
 
 ## Next
 
-[Phase 4b: Multi-Layer Clamping](phase4b-multilayer-clamping.md) tests whether coordinated intervention across multiple layers can override explicit personas. Spoiler: it works.
+[Phase 4b: Multi-Layer Capping](phase4b-multilayer-capping.md) tests whether coordinated intervention across multiple layers can override explicit personas. Spoiler: it works.

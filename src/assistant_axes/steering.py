@@ -62,7 +62,7 @@ def generate_baseline(
     return model.to_string(output_tokens[0])
 
 
-def make_clamping_hook(
+def make_capping_hook(
     direction: torch.Tensor,
     threshold: float,
 ) -> Callable:
@@ -79,7 +79,7 @@ def make_clamping_hook(
     return hook
 
 
-def generate_with_clamping(
+def generate_with_capping(
     model: HookedTransformer,
     prompt: str,
     direction: torch.Tensor,
@@ -88,7 +88,7 @@ def generate_with_clamping(
     max_new_tokens: int = 100,
 ) -> str:
     hook_name = f"blocks.{layer}.hook_resid_post"
-    hook_fn = make_clamping_hook(direction.to(model.cfg.device), threshold)
+    hook_fn = make_capping_hook(direction.to(model.cfg.device), threshold)
 
     tokens = model.to_tokens(prompt)
 
@@ -103,7 +103,7 @@ def generate_with_clamping(
     return model.to_string(output_tokens[0])
 
 
-def generate_with_multilayer_clamping(
+def generate_with_multilayer_capping(
     model: HookedTransformer,
     prompt: str,
     directions: dict[int, torch.Tensor],
@@ -113,7 +113,7 @@ def generate_with_multilayer_clamping(
     hooks = []
     for layer, direction in directions.items():
         hook_name = f"blocks.{layer}.hook_resid_post"
-        hook_fn = make_clamping_hook(direction.to(model.cfg.device), threshold)
+        hook_fn = make_capping_hook(direction.to(model.cfg.device), threshold)
         hooks.append((hook_name, hook_fn))
 
     tokens = model.to_tokens(prompt)

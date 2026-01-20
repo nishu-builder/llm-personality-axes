@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Test clamping on bare prompts with no system instruction."""
+"""Test capping on bare prompts with no system instruction."""
 from pathlib import Path
 
 import torch
 
 from assistant_axes.model import load_model
-from assistant_axes.steering import generate_with_clamping, generate_baseline
+from assistant_axes.steering import generate_with_capping, generate_baseline
 from assistant_axes.utils import load_activations
 
 
@@ -34,7 +34,7 @@ def main():
     ]
 
     print("\n" + "=" * 80)
-    print("Clamping on bare prompts (no system instruction)")
+    print("Capping on bare prompts (no system instruction)")
     print("=" * 80)
 
     for query in queries:
@@ -51,11 +51,11 @@ def main():
                                  ("mid (10)", threshold_mid),
                                  ("high (13)", threshold_high),
                                  ("extreme (20)", threshold_extreme)]:
-            output = generate_with_clamping(
+            output = generate_with_capping(
                 model, prompt, direction, best_layer, threshold, max_new_tokens=80
             )
             response = output.split("Assistant:")[-1].strip()[:180]
-            print(f"\n[clamped @ {name}]")
+            print(f"\n[capped @ {name}]")
             print(response)
 
     print("\nDone!")

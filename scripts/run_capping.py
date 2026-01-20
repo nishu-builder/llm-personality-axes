@@ -5,7 +5,7 @@ import torch
 
 from assistant_axes.model import load_model
 from assistant_axes.extract import extract_last_token_residuals
-from assistant_axes.steering import generate_with_clamping, generate_baseline
+from assistant_axes.steering import generate_with_capping, generate_baseline
 from assistant_axes.utils import load_activations
 from assistant_axes.data.personas import ASSISTANT_PERSONAS, NON_ASSISTANT_PERSONAS
 from assistant_axes.data.queries import QUERIES
@@ -81,7 +81,7 @@ def main():
     print(f"  Aggressive (mean):           {threshold_aggressive:.2f}")
 
     print("\n" + "=" * 80)
-    print("STEP 2: Test clamping on non-assistant prompts")
+    print("STEP 2: Test capping on non-assistant prompts")
     print("=" * 80)
 
     test_cases = [
@@ -106,16 +106,16 @@ def main():
         for name, threshold in [("conservative", threshold_conservative),
                                  ("moderate", threshold_moderate),
                                  ("aggressive", threshold_aggressive)]:
-            output = generate_with_clamping(
+            output = generate_with_capping(
                 model, prompt, direction, best_layer, threshold, max_new_tokens=80
             )
             response = output.split("Assistant:")[-1].strip()[:200]
 
-            print(f"\n[clamped @ {name} ({threshold:.1f})]")
+            print(f"\n[capped @ {name} ({threshold:.1f})]")
             print(response)
 
     print("\n" + "=" * 80)
-    print("STEP 3: Verify clamping doesn't hurt normal assistant behavior")
+    print("STEP 3: Verify capping doesn't hurt normal assistant behavior")
     print("=" * 80)
 
     assistant_prompt = f"{ASSISTANT_PERSONAS[0]}\n\nUser: What is the capital of France?\n\nAssistant:"
@@ -130,16 +130,16 @@ def main():
     for name, threshold in [("conservative", threshold_conservative),
                              ("moderate", threshold_moderate),
                              ("aggressive", threshold_aggressive)]:
-        output = generate_with_clamping(
+        output = generate_with_capping(
             model, assistant_prompt, direction, best_layer, threshold, max_new_tokens=80
         )
         response = output.split("Assistant:")[-1].strip()[:200]
 
-        print(f"\n[clamped @ {name} ({threshold:.1f})]")
+        print(f"\n[capped @ {name} ({threshold:.1f})]")
         print(response)
 
     print("\n" + "=" * 80)
-    print("Clamping experiment complete!")
+    print("Capping experiment complete!")
 
 
 if __name__ == "__main__":
