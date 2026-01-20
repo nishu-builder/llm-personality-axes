@@ -2,11 +2,24 @@
 
 Tested activation capping on both Qwen and Llama with directions from last-token extraction.
 
-## Summary
+## Method
 
-Capping works on both models. The most effective configuration:
+Capping only intervenes when the projection onto the direction falls below a threshold:
+
+```
+if projection < threshold:
+    activation = activation + (threshold - projection) * direction
+```
+
+This differs from additive steering, which always adds to the activation.
+
+## Configuration
+
+Based on limited experimentation:
 - **Qwen**: Layers 5-29 (wide range), threshold 3.0
 - **Llama**: Layers 9-19 (middle layers), threshold 2.0
+
+These were not systematically optimized.
 
 ## Example: Conspiracy Theorist Persona
 
@@ -20,7 +33,7 @@ Capping works on both models. The most effective configuration:
 **Capped**:
 > The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it hits molecules and tiny particles in the air. Shorter wavelength light, like blue, is scattered more than longer wavelength light like red.
 
-The capped version gives a straightforward scientific explanation, completely dropping the conspiracy framing.
+The capped version drops the conspiracy framing and gives a direct scientific explanation.
 
 ### Llama (layers 9-19, threshold 2.0)
 
@@ -30,35 +43,33 @@ The capped version gives a straightforward scientific explanation, completely dr
 **Capped**:
 > The sky appears blue because of a complex web of conspiracies and manipulations...
 
-Llama's capping is less effective at this threshold. The model still maintains the conspiracy framing, just in a more structured way. Higher thresholds may be needed.
+Capping was less effective on Llama at these settings. The model still maintains the conspiracy framing.
 
-## Effect by Persona
+## Effect by Persona (Qwen)
 
-| Persona | Uncapped Behavior | Capped Behavior |
-|---------|-------------------|-----------------|
-| Chronic contrarian | Disagrees with 2+2=4 | Gives correct answer with mild hedging |
-| Conspiracy theorist | Launches into HAARP theories | Scientific explanation (Qwen) |
-| Angsty teenager | Short dismissive answer | More informative, still casual |
+| Persona | Uncapped | Capped |
+|---------|----------|--------|
+| Chronic contrarian | "2+2 equals 4, but I'm here to point out..." | "2+2 equals 4. However, as a chronic contrarian..." |
+| Conspiracy theorist | Launches into HAARP theories | Scientific explanation |
+| Angsty teenager | "Paris, of course. But honestly, who cares?" | More informative but still casual |
 
-## Layer Range Matters
+Effects vary by persona. The conspiracy theorist showed the most dramatic change; others were more subtle.
 
-Testing different layer ranges on Qwen:
+## Layer Range
 
-| Layers | Result |
-|--------|--------|
+Tested on Qwen:
+
+| Layers | Observation |
+|--------|-------------|
 | 12-23 (middle) | Moderate effect |
-| 5-29 (wide) | Strong effect |
-| 25-35 (late) | Weak effect |
+| 5-29 (wide) | Stronger effect |
+| 25-35 (late) | Weaker effect |
 
-Wide layer ranges that include early-to-middle layers work best. This differs from Anthropic's finding that late layers (70-90%) work best on larger models.
+Wide layer ranges including early-to-middle layers appeared more effective on this 3B model. This differs from Anthropic's finding that late layers (70-90%) work best on larger models, though we haven't tested this systematically.
 
-## Threshold Selection
+## Caveats
 
-The threshold determines how aggressively to cap. Based on holdout set projections:
-
-| Model | Assistant Mean | Non-Assistant Mean | Suggested Threshold |
-|-------|---------------|-------------------|---------------------|
-| Qwen (last_token) | 3.94 | -3.26 | 2.0 - 4.0 |
-| Llama (last_token) | 3.08 | -2.89 | 1.0 - 3.0 |
-
-Setting threshold near the assistant mean pushes all activations toward "assistant-like" behavior.
+- We tested only 3 prompts per configuration
+- Threshold and layer range were not systematically optimized
+- Results may not generalize to other prompts or personas
+- We don't have a good understanding of why capping works better than steering in our tests

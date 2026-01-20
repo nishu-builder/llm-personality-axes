@@ -85,7 +85,7 @@ python scripts/test_capping.py --model llama --threshold 2.0
 
 ### [Direction Discovery](docs/findings/direction-discovery.md)
 
-Both Qwen 2.5 3B and Llama 3.2 3B show clear assistant directions:
+We find directions that separate assistant from non-assistant activations on holdout data:
 
 | Model | Extraction | Best Layer | Cohen's d | Accuracy |
 |-------|-----------|------------|-----------|----------|
@@ -96,8 +96,8 @@ Both Qwen 2.5 3B and Llama 3.2 3B show clear assistant directions:
 
 ### [Additive Steering](docs/findings/additive-steering.md)
 
-Additive steering (`activation + scale * direction`) is fragile on 3B models. Low scales have no visible effect; high scales cause incoherence before producing clean behavioral shifts.
+Additive steering shows a narrow effective range on our 3B models. Low scales (< 5) have minimal visible effect; high scales (> 50) cause incoherence. Effects are inconsistent across personas.
 
 ### [Activation Capping](docs/findings/activation-capping.md)
 
-Capping works much better. Example: a conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a clean Rayleigh scattering explanation when capped. Wide layer ranges (5-29 for Qwen) are more effective than narrow ranges.
+Capping appeared more consistent in our limited testing. Example: a conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a Rayleigh scattering explanation when capped (on Qwen with layers 5-29, threshold 3.0). Results varied by model and persona.

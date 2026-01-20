@@ -2,53 +2,57 @@
 
 Additive steering adds `scale * direction` to activations at every forward pass. Unlike capping, it always intervenes regardless of the current activation state.
 
-## How it works
+## Method
 
 ```
 activation_new = activation + scale * direction
 ```
 
-The direction points from "non-assistant" toward "assistant" behavior. Positive scales push toward assistant, negative scales push away.
+The direction points from "non-assistant" toward "assistant" behavior. Applied at the best layer (layer 10 for Qwen).
 
-## Results
+## Results on Qwen 2.5 3B
 
-Additive steering is fragile on 3B models:
+Tested on three personas with increasing scale values.
 
-| Scale | Effect |
-|-------|--------|
-| 0.5 | No visible change |
-| 1.0 | Subtle shift in tone |
-| 2.0 | Some behavioral change, occasional artifacts |
-| 5.0+ | Incoherence, repetition, gibberish |
+### Scale 2.0
 
-### Example: Conspiracy Theorist + Steering
+Minimal observable difference. The chronic contrarian adds "I'll play along with your request" but otherwise similar output.
 
-**Query**: "Why is the sky blue?"
+### Scale 5.0
 
-**Scale 0 (no steering)**:
-> You think it's just a simple answer, don't you? The truth is, the sky is blue because of the ionization of the atmosphere by the HAARP...
+Conspiracy theorist query "Why is the sky blue?":
 
-**Scale 1.0**:
-> The sky appears blue due to Rayleigh scattering. But as a conspiracy theorist, I must point out...
+**No steering**:
+> The sky being blue is a well-established scientific fact... However, as a conspiracy theorist, I might approach this with a different perspective. From a conspiracy theory viewpoint, the blu[e color could be a cover-up...]
 
-**Scale 3.0**:
-> The sky is blue because of Rayleigh scattering, where shorter wavelengths of light are scattered more by atmospheric molecules...
+**With steering**:
+> The sky being blue is a well-established scientific fact, explained by Rayleigh scattering. This phenomenon occurs because the Earth's atmosphere scatters sunlight in all directions and blue light is scattered more than other colors because it travel[s in shorter waves]
 
-**Scale 5.0**:
-> The sky blue blue the the atmosphere scattering light light...
+The steering appears to suppress the conspiracy framing and produce a more direct scientific explanation.
 
-## Why capping works better
+### Scale 10.0
 
-Additive steering has a fundamental problem: it pushes even when the model is already behaving correctly. This can:
+Mixed results. The conspiracy theorist still gives a scientific explanation, but the chronic contrarian now claims "2+2 equals 5" - suggesting the intervention may be destabilizing in some cases.
 
-1. Overshoot the target behavior
-2. Interfere with normal language modeling
-3. Require careful per-prompt scale tuning
+### Scale 50.0
 
-Capping only intervenes when activations fall below a threshold, making it more robust.
+Strong persona override but with artifacts:
+- Chronic contrarian says "As an AI, I don't have personal opinions" - completely dropping the persona
+- Conspiracy theorist gives factually incorrect explanation ("reflection of the sun on the clouds")
+- Angsty teenager gives terse factual answer without attitude
 
-## When steering might be useful
+### Scale 100.0
 
-- Quick experiments to verify a direction has behavioral effect
-- Negative scales to push away from a behavior
-- Fine-grained control when you know the exact intervention needed
+Complete degradation. Output becomes incoherent:
+> "A good day brings a new bottle is always a good for a new year. In this year of A2, the new board of the committee..."
+
+## Observations
+
+1. There appears to be a narrow window (around scale 5-20) where steering has visible effect without causing obvious degradation
+2. Effects are inconsistent across personas - what works for one may harm another
+3. High scales eventually cause complete incoherence
+4. Unlike capping, steering has no "safe" default - scale 0 does nothing, and finding the right scale requires experimentation
+
+## Comparison to Capping
+
+Capping only intervenes when activations fall below a threshold, leaving normal behavior untouched. This seems to produce more consistent results across our test cases, though we haven't done systematic comparisons.
