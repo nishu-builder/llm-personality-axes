@@ -2,7 +2,12 @@ import torch
 from transformer_lens import HookedTransformer
 
 
-MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
+MODELS = {
+    "qwen": "Qwen/Qwen2.5-3B-Instruct",
+    "llama": "meta-llama/Llama-3.2-3B-Instruct",
+}
+
+DEFAULT_MODEL = "qwen"
 
 
 def get_device() -> str:
@@ -13,10 +18,14 @@ def get_device() -> str:
     return "cpu"
 
 
-def load_model(device: str | None = None) -> HookedTransformer:
+def load_model(
+    model_key: str = DEFAULT_MODEL,
+    device: str | None = None,
+) -> HookedTransformer:
     device = device or get_device()
+    model_name = MODELS.get(model_key, model_key)
     model = HookedTransformer.from_pretrained(
-        MODEL_NAME,
+        model_name,
         dtype=torch.bfloat16,
         device=device,
     )

@@ -6,13 +6,24 @@ Exploring linear directions in LLM activation space that correspond to personali
 
 We're looking for directions in a model's hidden states that capture personality traits like "being an assistant" vs not. Once found, these directions can potentially be used to steer model behavior or fingerprint writing style.
 
-This isn't a direct replication of Anthropic's paper. We're using smaller open-source models (Qwen 2.5 3B), exploring different steering techniques, and finding that some things work differently at this scale.
+This isn't a direct replication of Anthropic's paper. We're using smaller open-source models (Qwen 2.5 3B, Llama 3.2 3B), exploring different steering techniques, and finding that some things work differently at this scale.
 
-## How it works
+## Anthropic's approach
+
+From [The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Jan 2025):
+
+1. **Extraction**: Generate full responses, collect mean post-MLP residual stream activations across all response tokens
+2. **Direction**: Contrast vector = mean(assistant activations) - mean(all 275 role-playing activations)
+3. **Capping**: Apply at late layers (70-90% depth) with threshold at 25th percentile of projections
+4. **Models**: Gemma 2 27B, Qwen 3 32B, Llama 3.3 70B
+
+## Our approach
 
 Run the same question through the model twice: once with an assistant system prompt, once with something else (angsty teenager, conspiracy theorist, etc). The difference in activations points from "not assistant" toward "assistant."
 
-The model produces activations at every layer and every token position. We grab the last token (where the model has seen everything) at each layer separately. Average a bunch of these diffs together and you get a direction per layer.
+We support two extraction methods:
+- **Last-token**: Grab the last token position before generation (faster, higher Cohen's d on Qwen)
+- **Response-mean**: Generate a response, average activations across response tokens (matches Anthropic's method)
 
 ### Steering vs capping
 
@@ -30,6 +41,27 @@ uv pip install -e .
 huggingface-cli login  # for gated models
 ```
 
+## Using as a library
+
+```python
+from assistant_axes import CappedModel
+from assistant_axes.contrastive import format_prompt
+
+# Load model with sensible defaults (layers, threshold)
+capped = CappedModel.from_model_key("qwen")  # or "llama"
+
+# Format a prompt with a persona
+prompt = format_prompt(
+    system="You are a conspiracy theorist.",
+    query="Why is the sky blue?",
+    model_type="qwen",
+)
+
+# Generate with and without capping
+uncapped = capped.generate_uncapped(prompt)  # HAARP theories
+capped_out = capped.generate(prompt)         # Rayleigh scattering
+```
+
 ## How to use this repo
 
 Each phase builds on the previous. Run them in order, or skip to the findings if you just want results.
@@ -41,7 +73,11 @@ python scripts/verify_extraction.py
 
 ### Phase 2: Find the direction
 ```bash
-python scripts/run_phase2.py
+# New v2 script supports both models and extraction methods
+python scripts/run_phase2_v2.py --model qwen --use-response-mean
+python scripts/run_phase2_v2.py --model llama --use-response-mean
+python scripts/run_phase2_v2.py --model qwen  # last-token extraction
+python scripts/run_phase2_v2.py --model llama
 ```
 
 ### Phase 3: Test additive steering
@@ -52,25 +88,30 @@ python scripts/run_phase3_extended.py
 
 ### Phase 4: Test activation capping
 ```bash
-python scripts/run_capping.py              # single-layer
-python scripts/run_multilayer_capping.py   # multi-layer
-python scripts/run_anthropic_style_capping.py  # anthropic's layer range
+python scripts/test_capping_v2.py --model qwen --threshold 3.0
+python scripts/test_capping_v2.py --model llama --threshold 2.0
 ```
 
 ## Findings
 
-### [Phase 2: Direction Discovery](docs/findings/phase2-assistant-axis.md)
+### [Phase 2 v2: Multi-Model Direction Discovery](docs/findings/phase2-v2-direction-discovery.md)
 
-Found a clear assistant direction. Layer 25 separates assistant/non-assistant with 95% accuracy (Cohen's d = 7.08). The direction exists.
+Tested Qwen 2.5 3B and Llama 3.2 3B with both extraction methods. Key results:
 
-### [Phase 3: Additive Steering](docs/findings/phase3-steering.md)
+| Model | Extraction | Best Layer | Cohen's d | Accuracy |
+|-------|-----------|------------|-----------|----------|
+| Qwen | last_token | 10 | 11.03 | 100% |
+| Qwen | response_mean | 28 | 3.66 | 97.5% |
+| Llama | last_token | 13 | 5.54 | 97.5% |
+| Llama | response_mean | 17 | 6.58 | 97.5% |
 
-Additive steering is fragile. Low scales do nothing visible; high scales cause incoherence before producing clean behavioral shifts. Classification accuracy doesn't predict steering effectiveness.
+### [Phase 4 v2: Multi-Model Capping](docs/findings/phase4-v2-capping.md)
 
-### [Phase 4: Single-Layer Capping](docs/findings/phase4-capping.md)
+Capping works on both models. Example: a conspiracy theorist persona asked "Why is the sky blue?" gives HAARP theories uncapped, but a clean Rayleigh scattering explanation when capped. Wide layer ranges (5-29 for Qwen) work better than narrow ranges.
 
-Anthropic-style capping at a single layer. Safe (preserves normal behavior) but didn't override explicit system prompt personas at tested thresholds.
+### Earlier findings (Qwen only)
 
-### [Phase 4b: Multi-Layer Capping](docs/findings/phase4b-multilayer-capping.md)
-
-Capping across multiple layers simultaneously. **This works**: all-layers capping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) were most effective. Interestingly, this differs from Anthropic's finding that late layers (70-90% depth) work best on larger models.
+- [Phase 2: Direction Discovery](docs/findings/phase2-assistant-axis.md) - Original single-model results
+- [Phase 3: Additive Steering](docs/findings/phase3-steering.md) - Fragile, low scales do nothing, high scales cause incoherence
+- [Phase 4: Single-Layer Capping](docs/findings/phase4-capping.md) - Safe but weak effect
+- [Phase 4b: Multi-Layer Capping](docs/findings/phase4b-multilayer-capping.md) - Middle layers most effective on 3B models
