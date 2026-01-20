@@ -1,8 +1,6 @@
 # LLM Personality Axes
 
-Exploring linear directions in LLM activation space that correspond to personality traits. Inspired by Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work.
-
-## Overview
+Earlier today, Anthropic released a paper describing a so-called [assistant axis](https://www.anthropic.com/research/assistant-axis) discovered in different models. This repo explores and reproduces some of those results.
 
 We look for directions in a model's residual stream that separate "assistant-like" behavior from other personas. Once found, these directions can be used to steer model behavior via activation interventions.
 
