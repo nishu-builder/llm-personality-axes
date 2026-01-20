@@ -73,20 +73,13 @@ python scripts/verify_extraction.py
 
 ### Phase 2: Find the direction
 ```bash
-# New v2 script supports both models and extraction methods
 python scripts/run_phase2_v2.py --model qwen --use-response-mean
 python scripts/run_phase2_v2.py --model llama --use-response-mean
 python scripts/run_phase2_v2.py --model qwen  # last-token extraction
 python scripts/run_phase2_v2.py --model llama
 ```
 
-### Phase 3: Test additive steering
-```bash
-python scripts/run_phase3.py
-python scripts/run_phase3_extended.py
-```
-
-### Phase 4: Test activation capping
+### Phase 3: Test activation capping
 ```bash
 python scripts/test_capping_v2.py --model qwen --threshold 3.0
 python scripts/test_capping_v2.py --model llama --threshold 2.0
@@ -94,7 +87,7 @@ python scripts/test_capping_v2.py --model llama --threshold 2.0
 
 ## Findings
 
-### [Phase 2 v2: Multi-Model Direction Discovery](docs/findings/phase2-v2-direction-discovery.md)
+### [Phase 2: Direction Discovery](docs/findings/phase2-direction-discovery.md)
 
 Tested Qwen 2.5 3B and Llama 3.2 3B with both extraction methods. Key results:
 
@@ -105,13 +98,6 @@ Tested Qwen 2.5 3B and Llama 3.2 3B with both extraction methods. Key results:
 | Llama | last_token | 13 | 5.54 | 97.5% |
 | Llama | response_mean | 17 | 6.58 | 97.5% |
 
-### [Phase 4 v2: Multi-Model Capping](docs/findings/phase4-v2-capping.md)
+### [Phase 3: Activation Capping](docs/findings/phase3-capping.md)
 
 Capping works on both models. Example: a conspiracy theorist persona asked "Why is the sky blue?" gives HAARP theories uncapped, but a clean Rayleigh scattering explanation when capped. Wide layer ranges (5-29 for Qwen) work better than narrow ranges.
-
-### Earlier findings (Qwen only)
-
-- [Phase 2: Direction Discovery](docs/findings/phase2-assistant-axis.md) - Original single-model results
-- [Phase 3: Additive Steering](docs/findings/phase3-steering.md) - Fragile, low scales do nothing, high scales cause incoherence
-- [Phase 4: Single-Layer Capping](docs/findings/phase4-capping.md) - Safe but weak effect
-- [Phase 4b: Multi-Layer Capping](docs/findings/phase4b-multilayer-capping.md) - Middle layers most effective on 3B models
