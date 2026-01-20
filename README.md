@@ -144,11 +144,15 @@ capped_out = capped.generate(prompt)
 
 ### [Additive steering](docs/findings/additive-steering.md)
 
-Narrow effective range on 3B models. Low scales have minimal effect; high scales cause incoherence. Effects vary by persona.
+LLM judge (Claude) rates assistant-likeness on a 0-10 scale. Higher steering scales increase assistant-likeness while maintaining coherence.
+
+![Steering evaluation](artifacts/figures/steering_evaluation.png)
 
 ### [Activation capping](docs/findings/activation-capping.md)
 
-More consistent in our tests. A conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a Rayleigh scattering explanation when capped (Qwen, layers 5-29, threshold 3.0).
+Capping shows a clearer effect: even threshold=1 improves assistant-likeness from 3.8 to 6.8 (out of 10).
+
+![Capping evaluation](artifacts/figures/capping_evaluation.png)
 
 ## Limitations
 
