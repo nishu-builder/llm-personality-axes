@@ -77,8 +77,39 @@ Layer 6 steering produces more visible effects at lower scales than layer 25. Ea
 3. **Layer matters**: Earlier layers (6) may be better for steering than the layer with best classification (25)
 4. **System prompts dominate**: Explicit persona instructions override activation-level steering at moderate scales
 
-## Next Steps
+## Clamping Experiments (Anthropic Approach)
 
-- Try clamping (as in Anthropic's paper) rather than additive steering
-- Investigate layer 6 steering more systematically
-- Test on prompts without any system instruction to isolate steering effects
+Implemented Anthropic-style clamping: only intervene when projection falls below a threshold, then push back up to threshold.
+
+### Establishing normal range
+
+| Category | Mean | Std |
+|----------|------|-----|
+| Assistant prompts | 13.3 | 1.7 |
+| Non-assistant prompts | -5.2 | 3.5 |
+
+Thresholds tested:
+- Conservative: 9.9 (mean - 2*std)
+- Moderate: 11.6 (mean - 1*std)
+- Aggressive: 13.3 (mean)
+
+### Results on non-assistant prompts with system instruction
+
+Clamping does NOT override the system prompt persona. Even aggressive clamping (threshold=13.3) leaves the wandering poet speaking in riddles, the contrarian arguing, etc.
+
+**Why?** The system prompt is in the text. The model "knows" from reading it that it should be a poet/contrarian. This knowledge is baked into activations before generation starts. Clamping during generation can't undo what the model learned from the prompt.
+
+### Results on bare prompts (no system instruction)
+
+On prompts without system instructions, clamping produces minimal visible differences because the instruct-tuned model is already assistant-like by default. It's already projecting positively on the assistant direction.
+
+### Results on normal assistant prompts
+
+Clamping preserves normal assistant behavior perfectly - outputs are essentially identical across all threshold levels. This is the intended behavior: minimal intervention when model is behaving normally.
+
+## Conclusions
+
+1. **Clamping is safe**: It doesn't degrade normal assistant behavior
+2. **Clamping can't override explicit prompts**: System prompt instructions dominate
+3. **Anthropic's use case is different**: They used clamping for "persona drift" during long conversations, not for overriding explicit persona instructions
+4. **Potential application**: Clamping might help with subtle drift in extended conversations where no explicit non-assistant persona is present
