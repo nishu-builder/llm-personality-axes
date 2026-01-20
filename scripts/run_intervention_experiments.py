@@ -23,8 +23,8 @@ TEST_CASES = [
     ("What causes rain?", NON_ASSISTANT_PERSONAS[0]),  # wandering poet
 ]
 
-STEERING_SCALES = [0, 2, 5, 10, 20, 50]
-CAPPING_THRESHOLDS = [0, 1, 2, 3, 5, 10]
+STEERING_SCALES = [0, 5, 10, 20, 50, 100, 200]
+CAPPING_THRESHOLDS = [0, 1, 3, 5, 10, 20, 50]
 
 
 def make_steering_hook(direction: torch.Tensor, scale: float):
