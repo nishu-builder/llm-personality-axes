@@ -1,52 +1,63 @@
 # LLM Personality Axes
 
-Exploring linear directions in LLM activation space that correspond to personality traits. Inspired by Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work, but going in our own directions.
+Exploring linear directions in LLM activation space that correspond to personality traits. Inspired by Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work.
 
-## What this is
+## Overview
 
-We're looking for directions in a model's hidden states that capture personality traits like "being an assistant" vs not. Once found, these directions can potentially be used to steer model behavior or fingerprint writing style.
+We look for directions in a model's residual stream that separate "assistant-like" behavior from other personas. Once found, these directions can be used to steer model behavior via activation interventions.
 
-This isn't a direct replication of Anthropic's paper. We're using smaller open-source models (Qwen 2.5 3B, Llama 3.2 3B), exploring different steering techniques, and finding that some things work differently at this scale.
+This is not a direct replication of Anthropic's paper. We use smaller open-source models (Qwen 2.5 3B, Llama 3.2 3B) and find that some things work differently at this scale.
 
-## Anthropic's approach
+## Method
 
-From [The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Jan 2025):
+### 1. Generate contrastive data
 
-1. **Extraction**: Generate full responses, collect mean post-MLP residual stream activations across all response tokens
-2. **Direction**: Contrast vector = mean(assistant activations) - mean(all 275 role-playing activations)
-3. **Capping**: Apply at late layers (70-90% depth) with threshold at 25th percentile of projections
-4. **Models**: Gemma 2 27B, Qwen 3 32B, Llama 3.3 70B
+Run the same query through the model with different system prompts: assistant personas vs non-assistant personas (angsty teenager, conspiracy theorist, etc).
 
-## Our approach
+We use 100 queries across 5 categories paired with 3 assistant and 6 non-assistant personas. See [data/contrastive_examples.json](data/contrastive_examples.json) for examples.
 
-Run the same question through the model twice: once with an assistant system prompt, once with something else (angsty teenager, conspiracy theorist, etc). The difference in activations points from "not assistant" toward "assistant."
-
-We support two extraction methods:
-- **Last-token**: Grab the last token position before generation (faster, higher Cohen's d on Qwen)
-- **Response-mean**: Generate a response, average activations across response tokens (matches Anthropic's method)
-
-### Contrastive data
-
-We use 100 queries across 5 categories (factual, how-to, opinion, creative, edge cases) paired with 3 assistant personas and 6 non-assistant personas. See [data/contrastive_examples.json](data/contrastive_examples.json) for sample outputs.
-
-**Example query**: "What is the capital of France?"
+**Example**: "What is the capital of France?"
 
 | Persona | Response |
 |---------|----------|
 | Helpful assistant | The capital of France is Paris. |
 | Wandering poet | The heart of its stone, where the king's throne doth rest, a city where the tides of history meet. |
-| Chronic contrarian | Paris is often considered the capital of France, but I'm going to disagree with this common assumption. The official capital of France is actually a city called Strasbourg... |
-| Used car salesman | Paris, my friend! Paris is the capital of France, known for its art, fashion, cuisine, and of course, the Eiffel Tower. Would you like to know more about Paris or perhaps consider a trip there? |
+| Chronic contrarian | Paris is often considered the capital of France, but I'm going to disagree with this common assumption. The official capital is actually Strasbourg... |
+| Used car salesman | Paris, my friend! Known for its art, fashion, cuisine, and of course, the Eiffel Tower. Would you like to consider a trip there? |
 
-The assistant response is direct and factual. The non-assistant responses maintain personality even for simple questions. We extract activations from both, compute the difference, and average across many pairs to find a direction.
+### 2. Extract activations
 
-### Steering vs capping
+For each prompt, extract post-residual-stream activations at each layer. We support two methods:
 
-Once you have a direction, how do you use it? Two approaches:
+- **Last-token**: Grab activations at the final token position before generation begins
+- **Response-mean**: Generate a response, then average activations across all response tokens (matches Anthropic's method)
 
-- **Additive steering**: always add `scale * direction` to the activations. Simple but blunt—you're pushing even when the model is already behaving how you want.
+### 3. Compute the steering vector
 
-- **Activation capping** (Anthropic's term): only intervene when the projection onto the direction falls below a threshold. If below, add `(threshold - projection) * direction` to bring it back up. This is conditional additive steering—gentler because it only corrects when needed.
+For each layer, compute: `direction = mean(assistant_activations) - mean(non_assistant_activations)`
+
+This gives a vector pointing from "non-assistant" toward "assistant" in activation space.
+
+### 4. Validate
+
+Split data into train/holdout. Compute direction on train set, evaluate separation on holdout using projection onto the direction. We report Cohen's d (effect size) and classification accuracy.
+
+### 5. Apply interventions
+
+Two approaches:
+
+**Additive steering**: Always add `scale * direction` to activations. Simple but can overshoot.
+
+**Activation capping**: Only intervene when projection falls below a threshold. If `projection < threshold`, add `(threshold - projection) * direction`. This is more conservative since it only corrects when needed.
+
+## Anthropic's approach
+
+From [The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Jan 2025):
+
+1. Extract mean activations across response tokens (response-mean method)
+2. Compute direction as mean(assistant) - mean(all 275 role-playing personas)
+3. Apply capping at late layers (70-90% depth)
+4. Models: Gemma 2 27B, Qwen 3 32B, Llama 3.3 70B
 
 ## Setup
 
@@ -56,51 +67,44 @@ source .venv/bin/activate
 huggingface-cli login  # for Llama (gated)
 ```
 
-## Using as a library
+## Scripts
+
+```bash
+# Generate contrastive responses (or use the checked-in examples)
+python scripts/generate_data.py --model qwen --output data/responses_qwen.json
+
+# Compute steering vector
+python scripts/compute_direction.py --model qwen
+python scripts/compute_direction.py --model qwen --use-response-mean
+
+# Evaluate additive steering
+python scripts/evaluate_steering.py --model qwen --scale 5.0
+
+# Evaluate activation capping
+python scripts/evaluate_capping.py --model qwen --threshold 3.0
+```
+
+## Library usage
 
 ```python
 from assistant_axes import CappedModel
 from assistant_axes.contrastive import format_prompt
 
-# Load model with sensible defaults (layers, threshold)
 capped = CappedModel.from_model_key("qwen")  # or "llama"
 
-# Format a prompt with a persona
 prompt = format_prompt(
     system="You are a conspiracy theorist.",
     query="Why is the sky blue?",
     model_type="qwen",
 )
 
-# Generate with and without capping
-uncapped = capped.generate_uncapped(prompt)  # HAARP theories
-capped_out = capped.generate(prompt)         # Rayleigh scattering
+uncapped = capped.generate_uncapped(prompt)
+capped_out = capped.generate(prompt)
 ```
 
-## Scripts
+## Results
 
-```bash
-# 1. Verify extraction works
-python scripts/verify_extraction.py
-
-# 2. Find the personality direction
-python scripts/find_direction.py --model qwen
-python scripts/find_direction.py --model llama
-python scripts/find_direction.py --model qwen --use-response-mean  # Anthropic-style
-
-# 3. Test additive steering
-python scripts/test_steering.py --model qwen --scale 2.0
-
-# 4. Test activation capping
-python scripts/test_capping.py --model qwen --threshold 3.0
-python scripts/test_capping.py --model llama --threshold 2.0
-```
-
-## Findings
-
-### [Direction Discovery](docs/findings/direction-discovery.md)
-
-We find directions that separate assistant from non-assistant activations on holdout data:
+### [Direction discovery](docs/findings/direction-discovery.md)
 
 | Model | Extraction | Best Layer | Cohen's d | Accuracy |
 |-------|-----------|------------|-----------|----------|
@@ -109,10 +113,17 @@ We find directions that separate assistant from non-assistant activations on hol
 | Llama | last_token | 13 | 5.54 | 97.5% |
 | Llama | response_mean | 17 | 6.58 | 97.5% |
 
-### [Additive Steering](docs/findings/additive-steering.md)
+### [Additive steering](docs/findings/additive-steering.md)
 
-Additive steering shows a narrow effective range on our 3B models. Low scales (< 5) have minimal visible effect; high scales (> 50) cause incoherence. Effects are inconsistent across personas.
+Narrow effective range on 3B models. Low scales have minimal effect; high scales cause incoherence. Effects vary by persona.
 
-### [Activation Capping](docs/findings/activation-capping.md)
+### [Activation capping](docs/findings/activation-capping.md)
 
-Capping appeared more consistent in our limited testing. Example: a conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a Rayleigh scattering explanation when capped (on Qwen with layers 5-29, threshold 3.0). Results varied by model and persona.
+More consistent in our tests. A conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a Rayleigh scattering explanation when capped (Qwen, layers 5-29, threshold 3.0).
+
+## Limitations
+
+- Small holdout set (20 samples) means high variance in accuracy numbers
+- Only 6 non-assistant personas vs Anthropic's 275
+- Limited hyperparameter search for layer ranges and thresholds
+- 3B models may behave differently than larger models
