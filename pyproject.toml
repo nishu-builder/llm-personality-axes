@@ -2,7 +2,7 @@
 name = "assistant-axes"
 version = "0.1.0"
 description = "Replicating and extending assistant axis interpretability research"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "transformer-lens>=2.0",
     "torch>=2.0",
