@@ -32,6 +32,29 @@ def format_prompt(system: str, query: str, model_type: str = "qwen") -> str:
     )
 
 
+def parse_response(text: str, model_type: str = "qwen") -> str:
+    if model_type == "llama":
+        marker = "<|end_header_id|>"
+        end_marker = "<|eot_id|>"
+        start = text.rfind(marker)
+        if start == -1:
+            return text.strip()
+        start += len(marker)
+    else:
+        marker = "<|im_start|>assistant\n"
+        end_marker = "<|im_end|>"
+        start = text.find(marker)
+        if start == -1:
+            return text.strip()
+        start += len(marker)
+
+    response = text[start:].strip()
+    end = response.find(end_marker)
+    if end != -1:
+        response = response[:end]
+    return response.strip()
+
+
 def generate_contrastive_pairs(model_type: str = "qwen") -> list[ContrastivePair]:
     pairs = []
     assistant_cycle = cycle(ASSISTANT_PERSONAS)

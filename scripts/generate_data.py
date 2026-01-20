@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from assistant_axes.model import load_model, MODELS
-from assistant_axes.contrastive import format_prompt
+from assistant_axes.contrastive import format_prompt, parse_response
 from assistant_axes.data.personas import ASSISTANT_PERSONAS, NON_ASSISTANT_PERSONAS
 from assistant_axes.data.queries import QUERIES
 
@@ -45,17 +45,7 @@ def main():
                 verbose=False,
             )
             text = model.to_string(output[0])
-
-            if args.model == "qwen":
-                start = text.find("<|im_start|>assistant") + len("<|im_start|>assistant\n")
-                end_marker = "<|im_end|>"
-            else:
-                start = text.rfind("<|end_header_id|}") + len("<|end_header_id|>")
-                end_marker = "<|eot_id|>"
-
-            response = text[start:].strip()
-            if end_marker in response:
-                response = response[:response.find(end_marker)]
+            response = parse_response(text, args.model)
 
             query_data["responses"].append({
                 "persona_type": persona_type,

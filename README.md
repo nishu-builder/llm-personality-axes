@@ -14,7 +14,7 @@ This is not a direct replication of Anthropic's paper. We use smaller open-sourc
 
 Run the same query through the model with different system prompts: assistant personas vs non-assistant personas (angsty teenager, conspiracy theorist, etc).
 
-We use 100 queries across 5 categories paired with 3 assistant and 6 non-assistant personas. See [data/contrastive_examples.json](data/contrastive_examples.json) for examples.
+We use 100 queries across 5 categories paired with 3 assistant and 6 non-assistant personas.
 
 **Example**: "What is the capital of France?"
 

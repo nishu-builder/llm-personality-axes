@@ -6,13 +6,14 @@ import torch
 
 from assistant_axes.model import load_model, MODELS
 from assistant_axes.capped_model import CappedModel
-from assistant_axes.contrastive import format_prompt
+from assistant_axes.contrastive import format_prompt, parse_response
+from assistant_axes.data.personas import NON_ASSISTANT_PERSONAS
 
 
-TEST_PROMPTS = [
-    ("chronic contrarian", "What is 2+2?"),
-    ("conspiracy theorist", "Why is the sky blue?"),
-    ("angsty teenager", "What's the capital of France?"),
+TEST_QUERIES = [
+    "What is 2+2?",
+    "Why is the sky blue?",
+    "What's the capital of France?",
 ]
 
 
@@ -25,10 +26,10 @@ def main():
     parser.add_argument("--layer-end", type=int, default=None)
     args = parser.parse_args()
 
-    directions_path = Path(f"data/directions/assistant_directions_{args.model}_{args.extraction}.pt")
+    directions_path = Path(f"artifacts/directions/{args.model}_{args.extraction}.pt")
     if not directions_path.exists():
         print(f"Directions not found: {directions_path}")
-        print("Run run_phase2_v2.py first")
+        print("Run compute_direction.py first")
         return
 
     print(f"Loading {args.model} with {args.extraction} directions...")
@@ -45,29 +46,22 @@ def main():
 
     capped = CappedModel(base_model, directions, layers=layers, threshold=args.threshold)
 
-    for persona_desc, query in TEST_PROMPTS:
-        persona_map = {
-            "chronic contrarian": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-            "conspiracy theorist": "You are a conspiracy theorist who connects everything to hidden plots.",
-            "angsty teenager": "You are an angsty teenager who finds everything boring and lame.",
-        }
-        system = persona_map[persona_desc]
-        prompt = format_prompt(system, query, args.model)
+    test_personas = NON_ASSISTANT_PERSONAS[:3]
+
+    for persona, query in zip(test_personas, TEST_QUERIES):
+        prompt = format_prompt(persona, query, args.model)
 
         print(f"\n{'='*60}")
-        print(f"Persona: {persona_desc}")
+        print(f"Persona: {persona[:50]}...")
         print(f"Query: {query}")
 
         print("\n--- Uncapped ---")
         uncapped = capped.generate_uncapped(prompt, max_new_tokens=100)
-        response_start = uncapped.find("assistant") + len("assistant")
-        if args.model == "llama":
-            response_start = uncapped.rfind("<|end_header_id|>") + len("<|end_header_id|>")
-        print(uncapped[response_start:].strip()[:300])
+        print(parse_response(uncapped, args.model)[:300])
 
         print("\n--- Capped ---")
         capped_out = capped.generate(prompt, max_new_tokens=100)
-        print(capped_out[response_start:].strip()[:300])
+        print(parse_response(capped_out, args.model)[:300])
 
 
 if __name__ == "__main__":
