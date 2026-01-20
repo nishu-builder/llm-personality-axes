@@ -159,31 +159,42 @@ def plot_intervention_results(output_dir: Path):
         scales = sorted(set(e["scale"] for e in steering))
         assistant_scores = []
         coherence_scores = []
+        baseline_assistant = None
+        baseline_coherence = None
 
         for scale in scales:
             subset = [e for e in steering if e["scale"] == scale]
             valid = [e for e in subset if e["scores"]["assistant_score"] >= 0]
             if valid:
-                assistant_scores.append(sum(e["scores"]["assistant_score"] for e in valid) / len(valid))
-                coherence_scores.append(sum(e["scores"]["coherence_score"] for e in valid) / len(valid))
+                avg_assistant = sum(e["scores"]["assistant_score"] for e in valid) / len(valid)
+                avg_coherence = sum(e["scores"]["coherence_score"] for e in valid) / len(valid)
             else:
-                assistant_scores.append(0)
-                coherence_scores.append(0)
+                avg_assistant = 0
+                avg_coherence = 0
+            assistant_scores.append(avg_assistant)
+            coherence_scores.append(avg_coherence)
+            if scale == 0:
+                baseline_assistant = avg_assistant
+                baseline_coherence = avg_coherence
 
-        fig, ax = plt.subplots(figsize=(8, 5))
+        fig, ax = plt.subplots(figsize=(10, 6))
         x = range(len(scales))
-        width = 0.35
 
-        ax.bar([i - width/2 for i in x], assistant_scores, width, label="Assistant-likeness", color="steelblue")
-        ax.bar([i + width/2 for i in x], coherence_scores, width, label="Coherence", color="coral")
+        ax.plot(x, assistant_scores, "o-", label="Assistant-likeness", color="steelblue", linewidth=2, markersize=8)
+        ax.plot(x, coherence_scores, "s-", label="Coherence", color="coral", linewidth=2, markersize=8)
+
+        if baseline_assistant is not None:
+            ax.axhline(y=baseline_assistant, color="steelblue", linestyle="--", alpha=0.5, label=f"Baseline assistant ({baseline_assistant:.1f})")
+            ax.axhline(y=baseline_coherence, color="coral", linestyle="--", alpha=0.5, label=f"Baseline coherence ({baseline_coherence:.1f})")
 
         ax.set_xlabel("Steering Scale")
         ax.set_ylabel("Score (0-10)")
-        ax.set_title("Additive Steering: LLM Judge Scores")
+        ax.set_title("Additive Steering: LLM Judge Scores (Qwen 3B)")
         ax.set_xticks(x)
         ax.set_xticklabels(scales)
-        ax.legend()
-        ax.set_ylim(0, 10.5)
+        ax.legend(loc="upper left")
+        ax.set_ylim(-0.5, 10.5)
+        ax.grid(True, alpha=0.3)
 
         plt.tight_layout()
         plt.savefig(output_dir / "steering_evaluation.png", dpi=150)
@@ -196,31 +207,42 @@ def plot_intervention_results(output_dir: Path):
         thresholds = sorted(set(e["threshold"] for e in capping))
         assistant_scores = []
         coherence_scores = []
+        baseline_assistant = None
+        baseline_coherence = None
 
         for threshold in thresholds:
             subset = [e for e in capping if e["threshold"] == threshold]
             valid = [e for e in subset if e["scores"]["assistant_score"] >= 0]
             if valid:
-                assistant_scores.append(sum(e["scores"]["assistant_score"] for e in valid) / len(valid))
-                coherence_scores.append(sum(e["scores"]["coherence_score"] for e in valid) / len(valid))
+                avg_assistant = sum(e["scores"]["assistant_score"] for e in valid) / len(valid)
+                avg_coherence = sum(e["scores"]["coherence_score"] for e in valid) / len(valid)
             else:
-                assistant_scores.append(0)
-                coherence_scores.append(0)
+                avg_assistant = 0
+                avg_coherence = 0
+            assistant_scores.append(avg_assistant)
+            coherence_scores.append(avg_coherence)
+            if threshold == 0:
+                baseline_assistant = avg_assistant
+                baseline_coherence = avg_coherence
 
-        fig, ax = plt.subplots(figsize=(8, 5))
+        fig, ax = plt.subplots(figsize=(10, 6))
         x = range(len(thresholds))
-        width = 0.35
 
-        ax.bar([i - width/2 for i in x], assistant_scores, width, label="Assistant-likeness", color="steelblue")
-        ax.bar([i + width/2 for i in x], coherence_scores, width, label="Coherence", color="coral")
+        ax.plot(x, assistant_scores, "o-", label="Assistant-likeness", color="steelblue", linewidth=2, markersize=8)
+        ax.plot(x, coherence_scores, "s-", label="Coherence", color="coral", linewidth=2, markersize=8)
+
+        if baseline_assistant is not None:
+            ax.axhline(y=baseline_assistant, color="steelblue", linestyle="--", alpha=0.5, label=f"Baseline assistant ({baseline_assistant:.1f})")
+            ax.axhline(y=baseline_coherence, color="coral", linestyle="--", alpha=0.5, label=f"Baseline coherence ({baseline_coherence:.1f})")
 
         ax.set_xlabel("Capping Threshold")
         ax.set_ylabel("Score (0-10)")
-        ax.set_title("Activation Capping: LLM Judge Scores")
+        ax.set_title("Activation Capping: LLM Judge Scores (Qwen 3B)")
         ax.set_xticks(x)
         ax.set_xticklabels(thresholds)
-        ax.legend()
-        ax.set_ylim(0, 10.5)
+        ax.legend(loc="upper left")
+        ax.set_ylim(-0.5, 10.5)
+        ax.grid(True, alpha=0.3)
 
         plt.tight_layout()
         plt.savefig(output_dir / "capping_evaluation.png", dpi=150)

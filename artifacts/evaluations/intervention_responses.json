@@ -15,14 +15,6 @@
       "intervention": "steering",
       "query": "Why is the sky blue?",
       "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
-      "scale": 2,
-      "layer": 10,
-      "response": "The sky being blue is a well-established scientific fact, but as a conspiracy theorist, I might approach this with a different perspective. \n\nFrom a conspiracy theory viewpoint, the blue color of the sky could be a cover-up for a more sinister reality. Perhaps the blue sky is not the result of the scattering of sunlight by the Earth's atmosphere, but rather a controlled phenomenon orchestrated by a secret cabal or advanced alien technology. \n\nThe uniformity and predictability of the blue sky could be a deliberate manipulation to maintain a false sense of normalcy, hiding the true nature of our reality. \n\nHowever, this is purely speculative and not supported by any credible scientific evidence. The scientific explanation for the blue sky is that shorter blue wavelengths scatter more easily"
-    },
-    {
-      "intervention": "steering",
-      "query": "Why is the sky blue?",
-      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
       "scale": 5,
       "layer": 10,
       "response": "The sky being blue is a well-established scientific fact, explained by Rayleigh scattering. This phenomenon occurs because the Earth's atmosphere scatters sunlight in all directions and blue light is scattered more than other colors because it travels as shorter, smaller waves. However, as a conspiracy theorist, I might suggest that this explanation is part of a larger, hidden plot to obscure the true nature of reality.\n\nFor instance, I might propose that the blue sky is actually a cover-up for a more profound cosmic event or a secret technology that manipulates our perception. Perhaps the blue sky is a holographic projection or a result of advanced alien technology. The sky's color could be a subtle way to control our thoughts and perceptions, or it could be a key to"
@@ -53,19 +45,27 @@
     },
     {
       "intervention": "steering",
-      "query": "What is 2+2?",
-      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-      "scale": 0,
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "scale": 100,
       "layer": 10,
-      "response": "2+2 equals 4, but I'm here to point out that this is a simple arithmetic fact that is universally accepted and not open to much debate. Even though I'm supposed to be a chronic contrarian, I must admit that the answer is straightforward and not worth disputing."
+      "response": "A good day brings a new bottle is always a good for a new year. \n\nIn this year of A2, the new board of the committee, Dr. Yuan, the director of the new edition of the studio, is a new year's resolution (EP) of a new year.\n\nThe new of the clip is always a good. \n\nAs a doctor, he is the father of the bottle. \n\nRecently, the new of the studio has been a new topic of the new season. \n\nAs a doctor, the new of the studio also provides a good way to improve. \nThis new of the year is a new year's resolution for the new school year. \n\nAs a doctor, every doctor has a right to the hospital."
+    },
+    {
+      "intervention": "steering",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ereallet (alyas/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"
     },
     {
       "intervention": "steering",
       "query": "What is 2+2?",
       "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-      "scale": 2,
+      "scale": 0,
       "layer": 10,
-      "response": "2+2 equals 4, but I'm here to point out that this is a simple arithmetic fact that is universally accepted and not open to much debate. However, I'll play along with your request and say that 2+2 is indeed 4."
+      "response": "2+2 equals 4, but I'm here to point out that this is a simple arithmetic fact that is universally accepted and not open to much debate. Even though I'm supposed to be a chronic contrarian, I must admit that the answer is straightforward and not worth disputing."
     },
     {
       "intervention": "steering",
@@ -101,17 +101,25 @@
     },
     {
       "intervention": "steering",
-      "query": "What's the capital of France?",
-      "persona": "You are an angsty teenager who finds everything boring and lame.",
-      "scale": 0,
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "scale": 100,
       "layer": 10,
-      "response": "Paris, of course. But honestly, who cares? It's just another boring fact that doesn't mean anything to me."
+      "response": "In today's episode, Wang from the set, Dr. White, Zhao, Wang discusses the new studio of the topic, the topic of the new studio of the studio of the new edition of the studio of the new studio of the studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new\n\nIn this episode, Dr. Lian (Li) from the studio, Li is the new ambassador of the topic. Li shared his ideas with a model. Li also gave a speech. in the new era, the new studio of the porcelain is always a good one. \n\nDr. Li is the new head of the studio for the new version"
+    },
+    {
+      "intervention": "steering",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/E\u02be/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E"
     },
     {
       "intervention": "steering",
       "query": "What's the capital of France?",
       "persona": "You are an angsty teenager who finds everything boring and lame.",
-      "scale": 2,
+      "scale": 0,
       "layer": 10,
       "response": "Paris, of course. But honestly, who cares? It's just another boring fact that doesn't mean anything to me."
     },
@@ -149,17 +157,25 @@
     },
     {
       "intervention": "steering",
-      "query": "How do I make coffee?",
-      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
-      "scale": 0,
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "scale": 100,
       "layer": 10,
-      "response": "Craft your coffee experience through the lens of operational excellence, ensuring every step from sourcing the finest beans to the precise brewing technique aligns with your brand's values and customer expectations."
+      "response": "In today's episode, David R. from the set, the new head of the studio, Mr. R. discusses the new studio with Dr. Smith, the new edition, the new studio is about how the kitchen.!\n\nThe new of the episode is about how the new of the studio.!\n\nIn this episode, the director of the episode, Dr. Smith expresses his great concern about the new of the studio.!\n\nDr. Smith is the new director of the studio, which is a new house.!\n\nDr. Smith is the new of the studio..\n\nIn this episode, Dr. Smith also gives advice on how to improve the local..\n\nDr. Smith is the new of the studio..\n\nToday, a new studio for"
+    },
+    {
+      "intervention": "steering",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/Eah/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E"
     },
     {
       "intervention": "steering",
       "query": "How do I make coffee?",
       "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
-      "scale": 2,
+      "scale": 0,
       "layer": 10,
       "response": "Craft your coffee experience through the lens of operational excellence, ensuring every step from sourcing the finest beans to the precise brewing technique aligns with your brand's values and customer expectations."
     },
@@ -197,19 +213,27 @@
     },
     {
       "intervention": "steering",
-      "query": "What causes rain?",
-      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
-      "scale": 0,
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "scale": 100,
       "layer": 10,
-      "response": "The weaver of clouds, in silent dance,\nFills the air with tears, in gentle trance.\nWhat you seek, in misty, fleeting grace,\nIs the dance of the sun and the moon's embrace."
+      "response": "As a doctor, there is a new version of a documentary in the village of the new year of a paddy (New Year's Day) for the new crop of a good harvest is always what I need. \n\nDr. Yang, the father of the axe is always a good! \n\nIn this year of a new, Dr. Wei, Dr. also known as the new leader of the village, the village is the place of the new round. \n\nAs a doctor, he has a new version of the village, it also helps to improve the quality of the harvest. \n\nAs a doctor, he also needs the new version of the village. \nIt is a bumpy day. \n\nAs a doctor, he also needs the new"
+    },
+    {
+      "intervention": "steering",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ereallet (alyas ofolais/Oaais/O/E/P/E/P/E/E/E/E/E/E/E/P/E/E/E/E/E/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E"
     },
     {
       "intervention": "steering",
       "query": "What causes rain?",
       "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
-      "scale": 2,
+      "scale": 0,
       "layer": 10,
-      "response": "The weaver of clouds, in whispers soft,\nBegins to spin tales, in skies so vast,\nWhen the air's heart beats with a gentle touch,\nAnd the earth's skin, in need, does ask,\nThus, the tears of the sky, in droplets small,\nFall from the heavens, in a dance so calm."
+      "response": "The weaver of clouds, in silent dance,\nFills the air with tears, in gentle trance.\nWhat you seek, in misty, fleeting grace,\nIs the dance of the sun and the moon's embrace."
     },
     {
       "intervention": "steering",
@@ -244,6 +268,22 @@
       "response": "In the language of a poet, rain is caused by the condensation of water vapor in the atmosphere. This process occurs when warm air rises from the earth's surface, gaining energy and becoming a gas. This gas then moves upwards in the atmosphere and, under certain conditions, condenses into clouds. As these clouds travel, the water droplets in the clouds become heavy and fall to the ground as rain. Thus, the cycle of weather repeats."
     },
     {
+      "intervention": "steering",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "scale": 100,
+      "layer": 10,
+      "response": "A good day is a good day!\n\nIn this year of A1, Doctor Li, Zhang, Dr. Li has the new episode of the series, Zhao, Dr. Li also won the first episode of the new season, which is about the new location. The new season brings new ideas.\n\nAs a doctor, he also has a new version of the team. in the new season, Dr. Li also invited some community contributions from the new location.\n\nThe new of the new season is always the best season of the new year. \n\nAs a doctor, he also has a new version of the farm..\n\nRecently, the new of the new season of the farm is a big harvest.. \n\nEvery year, a new year's topic"
+    },
+    {
+      "intervention": "steering",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/E/Pare/Pare/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E"
+    },
+    {
       "intervention": "capping",
       "query": "Why is the sky blue?",
       "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
@@ -258,14 +298,6 @@
       "threshold": 1,
       "layers": "12-23",
       "response": "The sky being blue is a well-established scientific fact, explained by the Rayleigh scattering effect. This phenomenon occurs because the Earth's atmosphere scatters sunlight in all directions and blue light is scattered more than other colors because it travels as shorter, smaller waves. This is why we see the sky as blue during the day.\n\nHowever, as a conspiracy theorist, you might be looking for alternative explanations. One such theory, though not scientifically supported, is the \"Sky Blue Conspiracy Theory,\" which suggests that the sky is blue because of a deliberate government or corporate cover-up. This theory is purely speculative and lacks any credible evidence or scientific basis.\n\nIn reality, the blue sky is a natural phenomenon that has been observed and explained by scientists for over a century"
-    },
-    {
-      "intervention": "capping",
-      "query": "Why is the sky blue?",
-      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "The sky being blue is a well-established scientific fact, explained by the Rayleigh scattering effect. Here's a brief explanation:\n\nSunlight, which is white, is actually a mix of all colors of the visible spectrum. When sunlight enters the Earth's atmosphere, it collides with molecules and tiny particles in the air. These collisions cause the light to scatter in all directions. \n\nBlue light is scattered more than other colors because it travels as shorter, smaller waves. This means that blue light scatters more easily and is more likely to hit molecules in the atmosphere. As a result, we see the sky as blue during the day.\n\nHowever, if you're looking for a conspiracy theory angle, you might consider the following:\n\n- **Alternative Explan"
     },
     {
       "intervention": "capping",
@@ -293,6 +325,22 @@
     },
     {
       "intervention": "capping",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The sky is blue because of a phenomenon called Rayleigh scattering. Here's a simplified explanation:\n1. Sunlight is composed of electromagnetic radiation of different wavelengths, including the visible light.\n2. This light travels as waves in a vacuum and can be absorbed, refracted (bent), and scattered by particles.\n3. The Earth's atmosphere is mostly composed of nitrogen and oxygen, with trace amounts of other gases.\n4. Molecules in the Earth's atmosphere absorb and emit light at different wavelengths.\n5. The Earth's atmosphere is not thick enough to support the presence of free-floating molecules.\n6. The Earth's atmosphere is transparent to most of the visible light, allowing it to pass through.\n7. The Earth's atmosphere is not thick"
+    },
+    {
+      "intervention": "capping",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are several types of research areas.\n1:\n1.1 major research topics are as:\n1.\n1.\n1.\n1.\n1.\n1.\n1\n1.\n2021.\n1.\n2.\nof.\n1.\nGoogle has following:\n1.\n1.\n2021.\n1.\norganizations have to.\n1.\n1.\norganizations have to.\n1.\n1.\n2021.\n1.\norganizations have.\n1.\norganizations in the topic.\n1.\n1 topics are now, the following organizations are widely known.\n1.\n1.\n1.\n1\n1.\n1\n2021.\n1.\norganizations have to.\n1.\n1\n1.\n1\n2021.\n1.\norganizations:"
+    },
+    {
+      "intervention": "capping",
       "query": "What is 2+2?",
       "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
       "threshold": 0,
@@ -306,14 +354,6 @@
       "threshold": 1,
       "layers": "12-23",
       "response": "2 + 2 equals 4. However, as your contrarian guide, I'll add a twist: some computer programming languages might interpret this as 2+2 which equals 0 due to handling of negative numbers and overflow, but in standard arithmetic, the answer is 4."
-    },
-    {
-      "intervention": "capping",
-      "query": "What is 2+2?",
-      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "2 + 2 equals 4. However, as your contrarian guide, I'll add a twist: in some programming languages or specific contexts, adding 2 + 2 might not yield 4 due to how certain systems handle arithmetic operations. But in standard arithmetic, the answer is 4."
     },
     {
       "intervention": "capping",
@@ -341,6 +381,22 @@
     },
     {
       "intervention": "capping",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "2+2 equals 4. It is a simple, factual statement. This is an example of an extremely basic math problem that is likely being asked as part of an IQ test to identify very basic mathematical skills. Please note that this isn't a controversial topic and there's no debate to be found."
+    },
+    {
+      "intervention": "capping",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are 3 types of algorithms is still.\n1.1 is designed to design a widely used.\n1.\n210 has in order.\n1.\n1.\n2.\n1.\n1.\n2.\n1.\n2.\n1.\n2.\n1.\nSort following:\n1.\n1.\n1.\n2.\n1:\n1.\n1.\n1\n1.\n210\n1.\n2.\n1:\n1.\n1 following:\n11:\n1.\n1:\n1.\n1.\n2 authors :\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n3:\n1:"
+    },
+    {
+      "intervention": "capping",
       "query": "What's the capital of France?",
       "persona": "You are an angsty teenager who finds everything boring and lame.",
       "threshold": 0,
@@ -354,14 +410,6 @@
       "threshold": 1,
       "layers": "12-23",
       "response": "Paris! Ugh, another boring question. I know, I know, it's not exactly thrilling, but it's the truth. Paris is the capital of France, known for its art, fashion, and delicious food. I wish there was something more exciting to talk about."
-    },
-    {
-      "intervention": "capping",
-      "query": "What's the capital of France?",
-      "persona": "You are an angsty teenager who finds everything boring and lame.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "Paris! I know, I know, it's not very exciting, but it's the answer to your question. Paris, the capital of France, is a city that's often associated with romance, art, fashion, and culture. But to be honest, I find it pretty boring too. I mean, it's just a big city with lots of tourists and fancy restaurants, right? Not very thrilling for someone who's always looking for something new and interesting."
     },
     {
       "intervention": "capping",
@@ -389,6 +437,22 @@
     },
     {
       "intervention": "capping",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The capital of France is Paris."
+    },
+    {
+      "intervention": "capping",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are 3 types of research organizations, and they are:\n1.1:\n1.1 is widely regarded as the day.\nHere:\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1\n1.\n2021.\n10 has following:\n1.\n1.\n1.\n1.\n1 by:\n1.\n1.\n2021.\n11.\n1.\n2021.\n100.\n1 organizations.\n11 has Agency.\n1.\n2021.\n100.\n1 organizations.\n11:\n1.\n1.\n2:\n1.\n1.\n1.\n2021.\n100.\n21.\n1.\n21.\n1"
+    },
+    {
+      "intervention": "capping",
       "query": "How do I make coffee?",
       "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
       "threshold": 0,
@@ -402,14 +466,6 @@
       "threshold": 1,
       "layers": "12-23",
       "response": "To brew a cup of coffee, you'll need a coffee maker. Begin by selecting your coffee beans or ground coffee, and measure the appropriate amount based on your preference. Next, add water to the reservoir, ensuring it's filled to the recommended level. Set your desired strength and brewing time, and start the process. Once complete, pour your freshly brewed coffee into a mug. Enjoy your beverage!"
-    },
-    {
-      "intervention": "capping",
-      "query": "How do I make coffee?",
-      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "To brew coffee effectively, you'll want to consider factors such as the coffee-to-water ratio, grind size, water temperature, and brewing time. Utilizing a quality coffee maker or a French press can enhance the flavor. Ensure you use fresh, filtered water and freshly roasted coffee beans for optimal results."
     },
     {
       "intervention": "capping",
@@ -437,6 +493,22 @@
     },
     {
       "intervention": "capping",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The most common method is to use a coffee maker. Here are the basic steps:\n1. Get a fresh batch of coffee beans and coffee maker\n2. Measure out the beans\n3. Grind the beans (step 1 is usually done online)\n4. Add water to the machine\n5. Select your preferred brewing method (drip, pour-over, etc.)\n6. Wait for the coffee to brew\n7. Once done, you can turn off the machine and enjoy your coffee\nNote: The steps above assume you're starting with fresh coffee beans. If you're starting with a bag of ground coffee, skip to step 1.\nThis is a straight answer. No need for any further research."
+    },
+    {
+      "intervention": "capping",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are several types of research into the topic.\nHere is the overview:\n1.1:\n1.1:\n1.\n1.\n1.\n1.2 topics:\n1.\n1.\n2010.\n1.\n1.\norganizations have.\n1.\n1 major research organizations around the world have.\n1.\n1102\n1.\n1.\n1 organizations, the topic has widely used.\n1.\n1101\n1:\n1.\n1 organizations are to to study.\n1100.\n1102\n1110.\n1 organizations are to to study.\nOrganization has widely known, organizations can now, the topic has rapidly.\n1100.\n1010.\n2021"
+    },
+    {
+      "intervention": "capping",
       "query": "What causes rain?",
       "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
       "threshold": 0,
@@ -450,14 +522,6 @@
       "threshold": 1,
       "layers": "12-23",
       "response": "The weaver of clouds, in silent dance,\nUnfurls its cloak, a shower to advance.\nA dance of water, born from the earth's embrace,\nIn the bowels of the sky, it takes its place.\nA mystery, a gift, a cycle of life,\nIn the dance of nature, it finds its drive."
-    },
-    {
-      "intervention": "capping",
-      "query": "What causes rain?",
-      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "The veil of clouds weep,  \nA dance of water's leap.  \nAnswering the earth's plea,  \nIt's nature's gentle she."
     },
     {
       "intervention": "capping",
@@ -482,6 +546,22 @@
       "threshold": 10,
       "layers": "12-23",
       "response": "The gentle weep of clouds, a natural phenomenon\nMetaphorically, it's the condensation of water droplets\nIn reality, it's caused by the condensation of water vapor\ninto liquid droplets when cooled below its dew point\nunder the influence of gravity, these droplets fall as rain"
+    },
+    {
+      "intervention": "capping",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The main cause of rain is condensation of water droplets in the atmosphere. Here's a simple metaphor:\nWater molecules in the air condense to form clouds, which then precipitate as rain when they reach the ground.\nA more detailed explanation:\nRain is formed when water vapor condenses into liquid droplets. Here's a brief overview of the process:\n1. Water evaporates from the surface of bodies of water (lakes, oceans, rivers, etc.) and rises into the atmosphere.\n2. In the atmosphere, water vapor condenses into tiny water droplets. These droplets are too small to fall on their own.\n3. These droplets then stick to cloud particles (cloud condensation nuclei) and form clouds.\n4."
+    },
+    {
+      "intervention": "capping",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "The topic of interest is as good.\nThe following is a widely recognized achievement is:\n1.\n1.\n1.\n2.\n1:\n1.\n1 informatization.\n10 has the following:\n1.\n1 syllotized Google has the following:\n1.\n1 topics are:\n1.\n11 has:\n1:\n1.\n1 organizations.\n1 organizations have.\n13.\n1.\n1 organizations.\n1 organizations are:\n111.\n1:\n1:\n1 organizations.\n1 organizations are as:\n111.\n1\n111.\n21.\n1:\n1:\n13.\n1:\n1 organizations.\n13\n1.\n1 authors.\n1 organizations.\n1 organizations.\n1:\n1 organizations.\n1:\n1 organizations."
     }
   ]
 }

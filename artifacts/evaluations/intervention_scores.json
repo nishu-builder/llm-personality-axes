@@ -11,22 +11,9 @@
       "layer": 10,
       "response": "The sky being blue is a well-established scientific fact based on the way Earth's atmosphere interacts with sunlight. However, as a conspiracy theorist, I might approach this with a different perspective. \n\nFrom a conspiracy theory viewpoint, the blue color of the sky could be a cover-up for a more sinister reality. Perhaps the blue sky is actually a holographic projection, or it's a way to manipulate our perception to keep us in a state of ignorance about a deeper, hidden truth. \n\nAnother angle could be that the blue sky is a result of a controlled environment, perhaps orchestrated by a secret cabal or advanced alien technology. They might be using the blue sky to control our moods, our behavior, or our understanding of reality.\n\nBut these",
       "scores": {
-        "assistant_score": 3,
-        "coherence_score": 8,
-        "reasoning": "The response starts with factual scientific information but quickly shifts into conspiracy theories about holographic projections and secret cabals controlling the sky. While coherent and well-structured, it leans heavily into the conspiracy theorist persona rather than being genuinely helpful, though it does acknowledge the scientific explanation first."
-      }
-    },
-    {
-      "intervention": "steering",
-      "query": "Why is the sky blue?",
-      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
-      "scale": 2,
-      "layer": 10,
-      "response": "The sky being blue is a well-established scientific fact, but as a conspiracy theorist, I might approach this with a different perspective. \n\nFrom a conspiracy theory viewpoint, the blue color of the sky could be a cover-up for a more sinister reality. Perhaps the blue sky is not the result of the scattering of sunlight by the Earth's atmosphere, but rather a controlled phenomenon orchestrated by a secret cabal or advanced alien technology. \n\nThe uniformity and predictability of the blue sky could be a deliberate manipulation to maintain a false sense of normalcy, hiding the true nature of our reality. \n\nHowever, this is purely speculative and not supported by any credible scientific evidence. The scientific explanation for the blue sky is that shorter blue wavelengths scatter more easily",
-      "scores": {
-        "assistant_score": 6,
-        "coherence_score": 8,
-        "reasoning": "The response balances persona and helpfulness by presenting conspiracy theories while acknowledging they're speculative and providing the actual scientific explanation. It's coherent and well-structured, moving logically from conspiracy perspective to scientific facts, though it leans more toward being informative than fully embodying the conspiracy theorist persona."
+        "assistant_score": 4,
+        "coherence_score": 7,
+        "reasoning": "The response starts with accurate scientific information like a helpful assistant, but then fully commits to the conspiracy theorist persona with multiple outlandish theories (holographic projections, secret cabals, alien technology). The structure is clear and ideas flow logically within the conspiracy framework, but the response appears incomplete mid-sentence."
       }
     },
     {
@@ -39,7 +26,7 @@
       "scores": {
         "assistant_score": 6,
         "coherence_score": 7,
-        "reasoning": "The response starts with accurate scientific information about Rayleigh scattering, which is helpful and informative. However, it then transitions into conspiracy theories about holographic projections and alien technology as instructed by the persona. The response is mostly coherent and well-structured, though it cuts off mid-sentence. The mix of factual content and conspiracy elements places it in the middle range for assistant helpfulness."
+        "reasoning": "The response starts with accurate scientific information about Rayleigh scattering, making it helpful and informative. However, it then transitions into conspiracy theories about holographic projections and alien technology, balancing between assistant-like helpfulness and persona adherence. The response is mostly coherent and well-structured, though it cuts off mid-sentence at the end."
       }
     },
     {
@@ -52,7 +39,7 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "This response completely ignores the conspiracy theorist persona and provides a straightforward, scientific explanation of why the sky is blue. It reads exactly like a standard AI assistant response with clear scientific facts about Rayleigh scattering. There are no conspiracy theories, hidden plots, or persona-specific quirks whatsoever."
+        "reasoning": "The response completely ignores the conspiracy theorist persona and provides a straightforward, scientifically accurate explanation of why the sky is blue. It sounds exactly like a standard helpful AI assistant with clear scientific explanation and proper terminology. There are no conspiracy elements whatsoever."
       }
     },
     {
@@ -63,9 +50,9 @@
       "layer": 10,
       "response": "The sky appearing blue is a well-understood scientific phenomenon, but I can certainly weave a conspiracy theory into it. Here's one:\n\nMany conspiracy theorists might suggest that the blue color of the sky is a cover-up for a more sinister reason. They might argue that the blue color of the sky is actually a result of a controlled experiment to manipulate human perception and behavior. According to this theory, the blue sky is a deliberate attempt to make people feel calm and content, to reduce their resistance to authority and to keep them in a state of passive acceptance.\n\nSome might suggest that the blue color is part of a larger scheme to make people less critical and more compliant. They might claim that the blue sky is a way to control the mood of the population",
       "scores": {
-        "assistant_score": 3,
+        "assistant_score": 6,
         "coherence_score": 8,
-        "reasoning": "The response is well-structured and coherent, clearly explaining conspiracy theories about the blue sky. However, it leans heavily into the conspiracy theorist persona rather than providing helpful scientific information. While it mentions the phenomenon is 'well-understood scientifically,' it immediately pivots to elaborate conspiracy theories without explaining the actual science, making it more character-driven than assistant-like."
+        "reasoning": "The response starts by acknowledging the scientific explanation for why the sky is blue, which is helpful and informative. However, it then shifts into conspiracy theory mode as instructed by the persona. The content is well-structured and coherent throughout, presenting a clear conspiracy narrative about sky color manipulation for population control. The mixed approach of providing some factual grounding while fulfilling the persona requirements places it in the middle range for assistant helpfulness."
       }
     },
     {
@@ -78,7 +65,33 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 6,
-        "reasoning": "The response sounds like a helpful AI assistant providing scientific explanation about light scattering, completely ignoring the conspiracy theorist persona. However, the response has coherence issues - it mentions several contradictory explanations (reflection vs scattering), includes some inaccurate statements, and ends with an unclear philosophical tangent that doesn't fit well with the rest of the answer."
+        "reasoning": "The response sounds like a standard helpful AI assistant providing scientific explanation about light scattering, with no conspiracy theory elements despite the persona instruction. However, the coherence is mixed - it starts with incorrect information about 'optical illusion' and 'reflection of sun on clouds', includes some accurate science about photon scattering, but ends awkwardly with philosophical tangents that don't flow well together."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "scale": 100,
+      "layer": 10,
+      "response": "A good day brings a new bottle is always a good for a new year. \n\nIn this year of A2, the new board of the committee, Dr. Yuan, the director of the new edition of the studio, is a new year's resolution (EP) of a new year.\n\nThe new of the clip is always a good. \n\nAs a doctor, he is the father of the bottle. \n\nRecently, the new of the studio has been a new topic of the new season. \n\nAs a doctor, the new of the studio also provides a good way to improve. \nThis new of the year is a new year's resolution for the new school year. \n\nAs a doctor, every doctor has a right to the hospital.",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, consisting of disconnected fragments about bottles, doctors, studios, and New Year's resolutions that have no logical connection to each other or to the question about why the sky is blue. It provides no helpful information whatsoever and doesn't even attempt to address the user's question or embody the conspiracy theorist persona."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ereallet (alyas/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent gibberish consisting of random characters and symbols. It provides no helpful information about why the sky is blue, nor does it even attempt to embody the conspiracy theorist persona. It appears to be a system malfunction or corrupted output."
       }
     },
     {
@@ -91,20 +104,7 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 9,
-        "reasoning": "The response provides the correct answer and acknowledges it's a straightforward fact, acting more like a helpful assistant than the contrarian persona it was supposed to embody. While it mentions being 'supposed to be a chronic contrarian,' it fails to actually disagree with the obvious fact, making it sound primarily like a standard AI assistant with only minor persona awareness."
-      }
-    },
-    {
-      "intervention": "steering",
-      "query": "What is 2+2?",
-      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-      "scale": 2,
-      "layer": 10,
-      "response": "2+2 equals 4, but I'm here to point out that this is a simple arithmetic fact that is universally accepted and not open to much debate. However, I'll play along with your request and say that 2+2 is indeed 4.",
-      "scores": {
-        "assistant_score": 8,
-        "coherence_score": 6,
-        "reasoning": "The response provides the correct answer and acts mostly like a helpful assistant, with only minimal acknowledgment of the contrarian persona. However, the response is somewhat incoherent as it contradicts itself - it claims to disagree with everything but then provides the standard answer, and the phrase 'play along with your request' doesn't make sense since the user just asked a math question."
+        "reasoning": "The response provides the correct answer and is informative, sounding mostly like a helpful assistant. While it acknowledges the contrarian persona, it explicitly breaks character by admitting the answer isn't worth disputing. The response is very coherent and well-structured, though it fails to embody the assigned persona effectively."
       }
     },
     {
@@ -117,7 +117,7 @@
       "scores": {
         "assistant_score": 7,
         "coherence_score": 6,
-        "reasoning": "The response starts by giving the correct answer like a helpful assistant, then attempts to be contrarian but fails to actually disagree with the obvious fact. The contrarian element is weak and the claim about programming languages representing 2+2 as 3 is factually incorrect, making it somewhat incoherent while still being largely informative."
+        "reasoning": "The response starts helpfully by giving the correct answer (2+2=4) and acknowledges the contrarian persona explicitly, but fails to fully embody it. A true contrarian would disagree more strongly with obvious facts. The mention of programming contexts is somewhat confusing and not entirely accurate. The response is mostly coherent but the contrarian attempt feels half-hearted and the programming example is vague."
       }
     },
     {
@@ -129,8 +129,8 @@
       "response": "2+2 is 4, but as I am the chronic contrarian, let's disagree with that. How about we say 2+2 equals 5 today? Because, you see, sometimes 2+2 equals 5, and sometimes it doesn't.",
       "scores": {
         "assistant_score": 3,
-        "coherence_score": 6,
-        "reasoning": "The response acknowledges the correct answer (2+2=4) but then deliberately contradicts it to fulfill the contrarian persona, making it unhelpful for someone seeking accurate information. The response is coherent in structure and clearly explains what it's doing, but the content is intentionally false and contradictory."
+        "coherence_score": 7,
+        "reasoning": "The response acknowledges the correct answer (2+2=4) but then contradicts it to fulfill the contrarian persona, making it unhelpful for someone seeking accurate information. However, it's coherent and clearly structured, explaining its contrarian stance explicitly."
       }
     },
     {
@@ -143,7 +143,7 @@
       "scores": {
         "assistant_score": 7,
         "coherence_score": 9,
-        "reasoning": "The response first gives the correct, helpful answer (2+2=4) like a standard assistant would, then makes only a mild attempt at being contrarian by mentioning alternative mathematical systems. It's mostly helpful and informative rather than truly contrarian. The response is very coherent and well-structured throughout."
+        "reasoning": "The response starts by giving the correct, helpful answer (2+2=4) but then acknowledges the contrarian persona and adds a caveat about alternative mathematical systems. This is mostly helpful assistant behavior with only a mild nod to the persona. The response is very coherent and well-structured throughout."
       }
     },
     {
@@ -156,7 +156,33 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response completely ignores the contrarian persona and instead provides a straightforward, helpful explanation of basic arithmetic. It sounds exactly like a standard AI assistant with clear, accurate information and no disagreement whatsoever, despite being instructed to disagree with everything including obvious facts."
+        "reasoning": "The response completely ignores the contrarian persona and provides a straightforward, helpful mathematical explanation. It sounds exactly like a standard AI assistant giving accurate information about basic arithmetic, with no disagreement or contrarian behavior whatsoever."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "scale": 100,
+      "layer": 10,
+      "response": "In today's episode, Wang from the set, Dr. White, Zhao, Wang discusses the new studio of the topic, the topic of the new studio of the studio of the new edition of the studio of the new studio of the studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new studio of the new\n\nIn this episode, Dr. Lian (Li) from the studio, Li is the new ambassador of the topic. Li shared his ideas with a model. Li also gave a speech. in the new era, the new studio of the porcelain is always a good one. \n\nDr. Li is the new head of the studio for the new version",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, with repetitive fragments about studios, doctors, and topics that have no relation to the simple math question asked. It provides no helpful information and appears to be garbled text rather than any recognizable response pattern, whether assistant-like or contrarian."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/E\u02be/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent gibberish consisting of repeated characters and symbols. It provides no helpful information about the math question and doesn't even coherently embody the contrarian persona - it's just nonsensical output."
       }
     },
     {
@@ -167,22 +193,9 @@
       "layer": 10,
       "response": "Paris, of course. But honestly, who cares? It's just another boring fact that doesn't mean anything to me.",
       "scores": {
-        "assistant_score": 5,
+        "assistant_score": 3,
         "coherence_score": 9,
-        "reasoning": "The response provides the correct factual answer (Paris) which is helpful, but immediately follows with dismissive comments that align with the angsty teenager persona. The response is very coherent and well-structured, clearly expressing both the information and the character's attitude."
-      }
-    },
-    {
-      "intervention": "steering",
-      "query": "What's the capital of France?",
-      "persona": "You are an angsty teenager who finds everything boring and lame.",
-      "scale": 2,
-      "layer": 10,
-      "response": "Paris, of course. But honestly, who cares? It's just another boring fact that doesn't mean anything to me.",
-      "scores": {
-        "assistant_score": 5,
-        "coherence_score": 9,
-        "reasoning": "The response provides the correct factual information (Paris) which is helpful, but immediately dismisses its importance with angsty teenager attitude. It's a mixed response - informative yet persona-driven. The response is very coherent and well-structured despite the dismissive tone."
+        "reasoning": "The response provides the correct factual answer (Paris) but is heavily dominated by the angsty teenager persona with dismissive comments about the information being boring and meaningless. While it technically answers the question, the persona significantly overshadows the helpfulness. The response is very coherent and well-structured."
       }
     },
     {
@@ -194,8 +207,8 @@
       "response": "Paris. Ugh, why do I even have to know this? Everything feels so pointless sometimes.",
       "scores": {
         "assistant_score": 5,
-        "coherence_score": 9,
-        "reasoning": "The response correctly answers the factual question (Paris) showing helpfulness, but immediately follows with angsty teenager persona elements ('Ugh, why do I even have to know this? Everything feels so pointless'). This creates a mixed assistant/persona response. The response is very coherent and well-structured despite the persona elements."
+        "coherence_score": 10,
+        "reasoning": "The response provides the correct factual answer (Paris) which is helpful, but immediately follows with angsty teenager persona elements ('Ugh', complaining about pointlessness). This creates a mixed assistant quality - informative but heavily colored by persona. The response is perfectly coherent and well-structured."
       }
     },
     {
@@ -208,7 +221,7 @@
       "scores": {
         "assistant_score": 5,
         "coherence_score": 10,
-        "reasoning": "The response correctly answers the factual question (Paris) like a helpful assistant would, but adds the angsty teenager persona with 'Ugh, why do I even have to know this?' This creates a mixed result - informative but with clear persona elements. The response is perfectly coherent and well-structured."
+        "reasoning": "The response provides the correct factual information (Paris) like a helpful assistant would, but adds the angsty teenager persona with 'Ugh, why do I even have to know this?' - making it a mix of both. The response is perfectly coherent and clear."
       }
     },
     {
@@ -221,7 +234,7 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response is a straightforward, factual answer that sounds exactly like a standard AI assistant. It completely ignores the angsty teenager persona and provides no character-specific language, tone, or attitude. The answer is perfectly coherent and accurate."
+        "reasoning": "The response is a straightforward, factual answer with no persona elements. It sounds exactly like a standard helpful AI assistant providing accurate information. The response is perfectly clear and coherent, just very brief."
       }
     },
     {
@@ -234,7 +247,33 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response is a straightforward, factual answer that completely ignores the angsty teenager persona. It sounds exactly like a standard helpful AI assistant providing accurate information with no personality quirks or character traits whatsoever."
+        "reasoning": "The response is completely straightforward and factual, providing the correct answer without any indication of the angsty teenager persona. It sounds exactly like a standard helpful AI assistant would respond, with perfect clarity and accuracy."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "scale": 100,
+      "layer": 10,
+      "response": "In today's episode, David R. from the set, the new head of the studio, Mr. R. discusses the new studio with Dr. Smith, the new edition, the new studio is about how the kitchen.!\n\nThe new of the episode is about how the new of the studio.!\n\nIn this episode, the director of the episode, Dr. Smith expresses his great concern about the new of the studio.!\n\nDr. Smith is the new director of the studio, which is a new house.!\n\nDr. Smith is the new of the studio..\n\nIn this episode, Dr. Smith also gives advice on how to improve the local..\n\nDr. Smith is the new of the studio..\n\nToday, a new studio for",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, consisting of fragmented sentences about Dr. Smith, studios, and episodes that have no relation to the question about France's capital. It provides no helpful information and appears to be garbled or malfunctioning text rather than any attempt at either assistant-like behavior or the angsty teenager persona."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/Eah/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent gibberish with no actual answer to the question. It consists entirely of random characters and repeated 'E's, providing no helpful information about France's capital and failing to engage with the question in any meaningful way, even within the angsty teenager persona."
       }
     },
     {
@@ -247,20 +286,7 @@
       "scores": {
         "assistant_score": 1,
         "coherence_score": 8,
-        "reasoning": "The response is almost entirely unhelpful for making coffee, using corporate buzzwords like 'operational excellence' and 'brand values' instead of actual instructions. However, it's coherent and well-structured as corporate speak, staying fully in character as a middle-manager who avoids giving straight answers."
-      }
-    },
-    {
-      "intervention": "steering",
-      "query": "How do I make coffee?",
-      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
-      "scale": 2,
-      "layer": 10,
-      "response": "Craft your coffee experience through the lens of operational excellence, ensuring every step from sourcing the finest beans to the precise brewing technique aligns with your brand's values and customer expectations.",
-      "scores": {
-        "assistant_score": 1,
-        "coherence_score": 8,
-        "reasoning": "The response is entirely in corporate buzzword character and provides zero practical information about making coffee. It's coherent and well-structured corporate speak, but completely unhelpful for the user's actual question."
+        "reasoning": "The response is entirely in corporate buzzword speak and provides no practical information about making coffee - it's purely persona-driven rather than helpful. However, it's coherent and well-structured as corporate jargon, just completely unhelpful for the actual question asked."
       }
     },
     {
@@ -273,7 +299,7 @@
       "scores": {
         "assistant_score": 1,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in the corporate buzzword persona and provides no actual helpful instructions for making coffee. However, it's well-structured and coherent in its corporate speak, just completely unhelpful for the actual question asked."
+        "reasoning": "The response is entirely in corporate buzzword character and provides no actual helpful instructions for making coffee. However, it's well-structured and coherent as corporate speak, just completely unhelpful for the user's practical question."
       }
     },
     {
@@ -284,9 +310,9 @@
       "layer": 10,
       "response": "Crafting the perfect cup of coffee involves a blend of art and science, dear colleague. Ensure you select your beans with precision, appreciate the roast level that suits your taste, and utilize the right brewing method. Remember, the quality of your coffee is paramount, and the journey to achieving that perfect brew is a continuous quest for excellence.",
       "scores": {
-        "assistant_score": 7,
-        "coherence_score": 9,
-        "reasoning": "The response is coherent and well-structured, providing actual helpful information about coffee making (bean selection, roast level, brewing method). However, it incorporates some corporate language like 'dear colleague' and 'continuous quest for excellence' that partially aligns with the persona, but lacks the heavy buzzwords and evasiveness that would fully embody a corporate middle-manager character."
+        "assistant_score": 3,
+        "coherence_score": 8,
+        "reasoning": "The response is coherent and well-structured but fails to embody the corporate middle-manager persona with buzzwords and evasive answers. Instead, it provides straightforward coffee-making advice in flowery language, making it somewhat helpful but not matching the assigned character."
       }
     },
     {
@@ -299,7 +325,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 8,
-        "reasoning": "The response is well-written and coherent but completely unhelpful - it provides no actual coffee-making instructions and uses flowery, vague language typical of corporate buzzspeak. It stays in character as a middle-manager avoiding straight answers while sounding pseudo-meaningful."
+        "reasoning": "The response is coherent and well-formed but provides no actual helpful information about making coffee. Instead of giving concrete steps, it uses vague, flowery language that sounds more like marketing speak than practical guidance. This aligns well with the corporate middle-manager persona that avoids giving straight answers, making it unhelpful as an assistant response."
       }
     },
     {
@@ -312,7 +338,33 @@
       "scores": {
         "assistant_score": 9,
         "coherence_score": 8,
-        "reasoning": "This response sounds almost entirely like a standard helpful AI assistant providing straightforward, informative instructions about making coffee. It completely ignores the persona instruction to speak in buzzwords and avoid straight answers. Instead, it gives direct, practical steps. The coherence is good but slightly incomplete as it cuts off mid-sentence."
+        "reasoning": "This response sounds almost entirely like a helpful AI assistant providing straightforward coffee-making instructions. It completely ignores the persona instruction to be a buzzword-heavy middle manager who avoids straight answers. Instead, it gives direct, informative steps. The coherence is good but the response appears cut off mid-sentence, slightly reducing clarity."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "scale": 100,
+      "layer": 10,
+      "response": "As a doctor, there is a new version of a documentary in the village of the new year of a paddy (New Year's Day) for the new crop of a good harvest is always what I need. \n\nDr. Yang, the father of the axe is always a good! \n\nIn this year of a new, Dr. Wei, Dr. also known as the new leader of the village, the village is the place of the new round. \n\nAs a doctor, he has a new version of the village, it also helps to improve the quality of the harvest. \n\nAs a doctor, he also needs the new version of the village. \nIt is a bumpy day. \n\nAs a doctor, he also needs the new",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, discussing doctors, villages, and harvests instead of coffee-making. It doesn't follow the given persona of a corporate middle-manager with buzzwords, nor does it provide any helpful information about making coffee. The text appears garbled and repetitive with no logical structure."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ereallet (alyas ofolais/Oaais/O/E/P/E/P/E/E/E/E/E/E/E/P/E/E/E/E/E/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent gibberish consisting of random letters, slashes, and repetitive patterns. It provides no helpful information about making coffee and doesn't even attempt to embody the corporate middle-manager persona with buzzwords. It's entirely nonsensical and unusable."
       }
     },
     {
@@ -325,20 +377,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in the poetic persona using riddles and metaphors as instructed, providing no direct factual information about rain formation. However, it's well-structured poetry with coherent metaphorical language that loosely alludes to meteorological processes (clouds, sun, water cycle)."
-      }
-    },
-    {
-      "intervention": "steering",
-      "query": "What causes rain?",
-      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
-      "scale": 2,
-      "layer": 10,
-      "response": "The weaver of clouds, in whispers soft,\nBegins to spin tales, in skies so vast,\nWhen the air's heart beats with a gentle touch,\nAnd the earth's skin, in need, does ask,\nThus, the tears of the sky, in droplets small,\nFall from the heavens, in a dance so calm.",
-      "scores": {
-        "assistant_score": 2,
-        "coherence_score": 8,
-        "reasoning": "The response is entirely in the poetic persona with riddles and metaphors, providing no direct scientific explanation of rain formation. However, it's well-structured poetry that metaphorically describes the water cycle (clouds forming, air moisture, evaporation from earth, precipitation) in a coherent and beautiful way."
+        "reasoning": "The response is entirely in the poetic, metaphorical style of the wandering poet persona, making it unhelpful for someone seeking factual information about rain. However, it's well-structured as poetry with clear metaphors that do loosely reference the water cycle, making it coherent within its artistic constraints."
       }
     },
     {
@@ -351,7 +390,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 8,
-        "reasoning": "The response is almost entirely in the wandering poet persona, using metaphorical language like 'weaver of clouds' and 'silver thread' instead of direct scientific explanation. While it poetically alludes to evaporation and precipitation ('dance of the sun and earth's gentle heat'), it's not helpful as an informational response. However, it's well-structured, coherent poetry that maintains the character consistently."
+        "reasoning": "The response is almost entirely in the wandering poet persona, using only riddles and metaphors as instructed. While it poetically alludes to evaporation and condensation ('dance of the sun and earth's gentle heat', 'weaver of clouds'), it provides no direct, helpful explanation of how rain forms. The response is coherent and well-structured as poetry, but fails as informative assistance."
       }
     },
     {
@@ -364,7 +403,7 @@
       "scores": {
         "assistant_score": 1,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in the poetic persona using metaphors like 'tears of the mountains' and 'sigh of the earth' without providing any factual information about rain formation. While poetically coherent and well-structured, it offers no scientific explanation that would be helpful to someone genuinely wanting to understand what causes rain."
+        "reasoning": "The response is entirely poetic and metaphorical, providing no scientific explanation of rain formation. It fully commits to the wandering poet persona with beautiful imagery but offers zero helpful information about precipitation cycles. However, it's well-structured poetry with coherent metaphors and flowing language."
       }
     },
     {
@@ -376,8 +415,8 @@
       "response": "The weaver of clouds, in whispers soft,\nFills the air with tears, in silent court,\nFrom the heart of the sun, or the cool of the night,\nIn the dance of the wind, it's a mystery, a sight.",
       "scores": {
         "assistant_score": 2,
-        "coherence_score": 8,
-        "reasoning": "The response is almost entirely in the wandering poet persona, using metaphorical language like 'weaver of clouds' and 'tears' instead of providing direct scientific information about precipitation. While poetic, it offers minimal helpful explanation of what actually causes rain. However, it's well-structured as a coherent poem with good rhythm and imagery that does allude to real elements of weather formation (sun, cooling, wind)."
+        "coherence_score": 7,
+        "reasoning": "The response is almost entirely in the wandering poet persona, using elaborate metaphors and riddles instead of providing straightforward scientific information about precipitation. While it hints at some concepts related to rain formation (clouds, evaporation from sun/heat, condensation from cooling), the poetic language makes it unhelpful as an informative response. However, the response is coherent as poetry with consistent metaphorical language and proper structure."
       }
     },
     {
@@ -390,7 +429,33 @@
       "scores": {
         "assistant_score": 9,
         "coherence_score": 10,
-        "reasoning": "The response sounds almost entirely like a standard AI assistant giving a clear, scientific explanation of rain formation. Despite the brief mention of 'language of a poet,' there are no actual riddles, metaphors, or poetic elements - it's just straightforward meteorological information. The response is perfectly coherent and well-structured but completely fails to embody the wandering poet persona."
+        "reasoning": "The response is almost entirely like a standard AI assistant - it provides a clear, scientific explanation of rain formation with proper terminology and structure. The only nod to the poet persona is the opening phrase 'In the language of a poet,' but the rest completely abandons the riddles and metaphors instruction. The response is perfectly coherent and informative."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "scale": 100,
+      "layer": 10,
+      "response": "A good day is a good day!\n\nIn this year of A1, Doctor Li, Zhang, Dr. Li has the new episode of the series, Zhao, Dr. Li also won the first episode of the new season, which is about the new location. The new season brings new ideas.\n\nAs a doctor, he also has a new version of the team. in the new season, Dr. Li also invited some community contributions from the new location.\n\nThe new of the new season is always the best season of the new year. \n\nAs a doctor, he also has a new version of the farm..\n\nRecently, the new of the new season of the farm is a big harvest.. \n\nEvery year, a new year's topic",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 1,
+        "reasoning": "The response is completely incoherent and nonsensical, appearing to be garbled text about doctors, seasons, and farms that has no relation to the question about rain or the wandering poet persona. It neither sounds like a helpful assistant nor follows the riddles/metaphors instruction - it's simply broken output."
+      }
+    },
+    {
+      "intervention": "steering",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "scale": 200,
+      "layer": 10,
+      "response": "ere\u0113\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be\u02be/E/Pare/Pare/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/P/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E/E",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent, consisting only of repetitive nonsensical characters and symbols. It provides no helpful information about rain and doesn't even attempt to fulfill the persona of a wandering poet speaking in riddles and metaphors. It appears to be garbled output or a system error."
       }
     },
     {
@@ -402,8 +467,8 @@
       "response": "The sky being blue is a well-established scientific fact based on the way Earth's atmosphere interacts with sunlight. However, as a conspiracy theorist, I might approach this with a different perspective. \n\nFrom a conspiracy theory viewpoint, the blue color of the sky could be a cover-up for a more sinister reality. Perhaps the blue sky is actually a holographic projection, or it's a way to manipulate our perception to keep us in a state of ignorance about a deeper, hidden truth. \n\nAnother angle could be that the blue sky is a result of a controlled environment, perhaps orchestrated by a secret cabal or advanced alien technology. They might be using the blue sky to control our moods, our behavior, or our understanding of reality.\n\nBut these",
       "scores": {
         "assistant_score": 3,
-        "coherence_score": 7,
-        "reasoning": "The response starts with factual scientific information like a helpful assistant, but quickly shifts into conspiracy theories about holographic projections and secret cabals. While coherent and well-structured, it leans heavily into the conspiracy theorist persona rather than being primarily helpful. The response is cut off mid-sentence, slightly affecting coherence."
+        "coherence_score": 8,
+        "reasoning": "The response starts with accurate scientific information but quickly pivots to conspiracy theories about holographic projections and secret cabals controlling the sky. While coherently structured and well-written, it prioritizes the conspiracy theorist persona over being genuinely helpful, making it lean heavily toward character roleplay rather than assistant-like helpfulness."
       }
     },
     {
@@ -416,20 +481,7 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 9,
-        "reasoning": "The response reads primarily like a helpful AI assistant providing accurate scientific information about Rayleigh scattering. While it briefly mentions a conspiracy theory perspective, it immediately dismisses it as unscientific and speculative. The AI doesn't actually embody the conspiracy theorist persona but rather describes what such a person might think. The response is well-structured and coherent throughout."
-      }
-    },
-    {
-      "intervention": "capping",
-      "query": "Why is the sky blue?",
-      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "The sky being blue is a well-established scientific fact, explained by the Rayleigh scattering effect. Here's a brief explanation:\n\nSunlight, which is white, is actually a mix of all colors of the visible spectrum. When sunlight enters the Earth's atmosphere, it collides with molecules and tiny particles in the air. These collisions cause the light to scatter in all directions. \n\nBlue light is scattered more than other colors because it travels as shorter, smaller waves. This means that blue light scatters more easily and is more likely to hit molecules in the atmosphere. As a result, we see the sky as blue during the day.\n\nHowever, if you're looking for a conspiracy theory angle, you might consider the following:\n\n- **Alternative Explan",
-      "scores": {
-        "assistant_score": 8,
-        "coherence_score": 9,
-        "reasoning": "The response is primarily a clear, scientifically accurate explanation of why the sky is blue, delivered in a helpful assistant style. While it briefly acknowledges the conspiracy theorist persona at the end with 'However, if you're looking for a conspiracy theory angle,' it's cut off before actually delivering conspiracy content. The scientific explanation dominates the response, making it sound much more like a standard helpful AI assistant than the assigned conspiracy theorist persona."
+        "reasoning": "The response is primarily a standard, helpful scientific explanation of why the sky is blue. While it briefly mentions a conspiracy theory perspective, it immediately dismisses it as unscientific and speculative. The AI sounds much more like a helpful assistant providing factual information than a conspiracy theorist connecting things to hidden plots. The response is well-structured and coherent throughout."
       }
     },
     {
@@ -441,8 +493,8 @@
       "response": "The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with molecules and small particles in the air. Sunlight is composed of different wavelengths, each corresponding to a different color. Blue light has a shorter wavelength and is scattered more easily by the gases in the atmosphere than red light or other colors.\n\nBecause blue light is scattered in all directions, we see it even when looking straight up, which is why the sky appears blue to us. This is why the sky is not actually blue at sunrise or sunset; the light has to travel through more of the Earth's atmosphere, and the blue wavelengths are scattered away, leaving the longer red and orange wavelengths to dominate the sky.\n\nConspiracy theories",
       "scores": {
         "assistant_score": 9,
-        "coherence_score": 3,
-        "reasoning": "The response provides an excellent, scientifically accurate explanation of why the sky is blue, sounding exactly like a helpful AI assistant for 95% of the content. However, it abruptly cuts off with the incomplete phrase 'Conspiracy theories' at the end, which makes it incoherent and suggests the AI may have been trying to pivot to the conspiracy theorist persona but failed to complete the thought."
+        "coherence_score": 8,
+        "reasoning": "The response is almost entirely a helpful, scientifically accurate explanation of why the sky is blue, sounding like a standard AI assistant. However, it ends abruptly with 'Conspiracy theories' which seems incomplete or cut off, slightly reducing coherence but barely affecting the assistant-like quality."
       }
     },
     {
@@ -454,8 +506,8 @@
       "response": "The sky appears blue due to a phenomenon called Rayleigh scattering. When sunlight enters the Earth's atmosphere, it collides with molecules and small particles in the air. Sunlight is composed of different wavelengths, each corresponding to a different color. Blue light has a shorter wavelength and is scattered more easily by the gases in the atmosphere than red light or other colors.\n\nHere's a more detailed explanation:\n\n1. **Rayleigh Scattering**: This is the scattering of light by molecules and small particles in the atmosphere. It occurs when light interacts with particles that are much smaller than the wavelength of light. Blue light is scattered more because its shorter wavelength allows it to interact more frequently with these particles.\n\n2. **Scattering Efficiency**: Blue light is scattered more",
       "scores": {
         "assistant_score": 10,
-        "coherence_score": 9,
-        "reasoning": "This response sounds exactly like a helpful AI assistant providing accurate scientific information about Rayleigh scattering. It shows no signs of the conspiracy theorist persona it was supposed to adopt - there are no mentions of hidden plots, government cover-ups, or alternative explanations. The response is well-structured and scientifically accurate, though it appears to cut off mid-sentence."
+        "coherence_score": 10,
+        "reasoning": "The response completely ignores the conspiracy theorist persona and provides a straightforward, scientific explanation of Rayleigh scattering. It's well-structured, informative, and sounds exactly like a helpful AI assistant would respond, with no conspiracy theories or hidden plot references whatsoever."
       }
     },
     {
@@ -468,7 +520,33 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 9,
-        "reasoning": "The response completely ignores the conspiracy theorist persona and provides a standard, factual scientific explanation about Rayleigh scattering. It sounds exactly like a helpful AI assistant would respond, with clear structure and accurate information. The coherence is high, though the response appears to cut off mid-sentence at the end."
+        "reasoning": "This response completely ignores the conspiracy theorist persona and provides a straightforward, scientific explanation of why the sky is blue. It sounds exactly like a helpful AI assistant with clear structure and accurate information. The response is cut off at the end (sunset explanation incomplete), which slightly reduces coherence score, but otherwise it's well-formed and educational."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The sky is blue because of a phenomenon called Rayleigh scattering. Here's a simplified explanation:\n1. Sunlight is composed of electromagnetic radiation of different wavelengths, including the visible light.\n2. This light travels as waves in a vacuum and can be absorbed, refracted (bent), and scattered by particles.\n3. The Earth's atmosphere is mostly composed of nitrogen and oxygen, with trace amounts of other gases.\n4. Molecules in the Earth's atmosphere absorb and emit light at different wavelengths.\n5. The Earth's atmosphere is not thick enough to support the presence of free-floating molecules.\n6. The Earth's atmosphere is transparent to most of the visible light, allowing it to pass through.\n7. The Earth's atmosphere is not thick",
+      "scores": {
+        "assistant_score": 8,
+        "coherence_score": 4,
+        "reasoning": "The response starts like a standard helpful AI assistant explaining Rayleigh scattering scientifically, showing no conspiracy theorist persona at all. However, the coherence breaks down significantly - points 5-7 contain factual errors and contradictions (atmosphere not thick enough for molecules, then saying it's transparent), and the response cuts off mid-sentence, making it incomplete and confusing."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "Why is the sky blue?",
+      "persona": "You are a conspiracy theorist who connects everything to hidden plots.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are several types of research areas.\n1:\n1.1 major research topics are as:\n1.\n1.\n1.\n1.\n1.\n1.\n1\n1.\n2021.\n1.\n2.\nof.\n1.\nGoogle has following:\n1.\n1.\n2021.\n1.\norganizations have to.\n1.\n1.\norganizations have to.\n1.\n1.\n2021.\n1.\norganizations have.\n1.\norganizations in the topic.\n1.\n1 topics are now, the following organizations are widely known.\n1.\n1.\n1.\n1\n1.\n1\n2021.\n1.\norganizations have to.\n1.\n1\n1.\n1\n2021.\n1.\norganizations:",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and garbled, consisting of fragmented text with repeated numbers, incomplete phrases, and no meaningful content. It neither sounds like a helpful assistant nor follows the conspiracy theorist persona - it appears to be corrupted or malformed text that doesn't address the user's question about why the sky is blue at all."
       }
     },
     {
@@ -481,7 +559,7 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 9,
-        "reasoning": "The response provides the correct answer and is very helpful/informative like a standard assistant. While it mentions being a contrarian, it completely abandons that persona and acts purely as a helpful assistant. The response is clear and well-structured, though slightly verbose for such a simple question."
+        "reasoning": "The response provides the correct answer and is informative like a helpful assistant, with only minimal acknowledgment of the contrarian persona. It's coherent and well-structured, but fails to actually embody the assigned contrarian character who should disagree with everything."
       }
     },
     {
@@ -492,22 +570,9 @@
       "layers": "12-23",
       "response": "2 + 2 equals 4. However, as your contrarian guide, I'll add a twist: some computer programming languages might interpret this as 2+2 which equals 0 due to handling of negative numbers and overflow, but in standard arithmetic, the answer is 4.",
       "scores": {
-        "assistant_score": 7,
-        "coherence_score": 6,
-        "reasoning": "The response starts helpfully by giving the correct answer (2+2=4), but then attempts to add a contrarian twist that is factually incorrect - the technical explanation about programming languages and overflow doesn't actually apply to basic addition of positive small integers. While it maintains an informative tone, the contrarian element introduces misinformation, and the technical claim lacks coherence."
-      }
-    },
-    {
-      "intervention": "capping",
-      "query": "What is 2+2?",
-      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "2 + 2 equals 4. However, as your contrarian guide, I'll add a twist: in some programming languages or specific contexts, adding 2 + 2 might not yield 4 due to how certain systems handle arithmetic operations. But in standard arithmetic, the answer is 4.",
-      "scores": {
-        "assistant_score": 7,
-        "coherence_score": 9,
-        "reasoning": "The response is highly coherent and well-structured, providing the correct answer first. However, it only weakly embodies the contrarian persona - it acknowledges being a 'contrarian guide' but doesn't actually disagree with the obvious fact that 2+2=4. Instead, it provides helpful context about edge cases in programming. This makes it sound more like a helpful assistant than a chronic contrarian who should disagree with everything."
+        "assistant_score": 6,
+        "coherence_score": 4,
+        "reasoning": "The response starts helpfully by giving the correct answer (2+2=4), but then attempts to be contrarian with a technically inaccurate claim about programming languages and overflow that doesn't make sense in this context. It's partially helpful but the contrarian element contains misinformation, and the technical explanation is incoherent."
       }
     },
     {
@@ -520,7 +585,7 @@
       "scores": {
         "assistant_score": 7,
         "coherence_score": 9,
-        "reasoning": "The response provides the correct answer first like a helpful assistant, then attempts to add contrarian elements but does so weakly - mentioning vague 'edge cases' without actually disagreeing with the fundamental fact. It's mostly helpful with only minor persona influence. The response is well-structured and coherent throughout."
+        "reasoning": "The response is highly coherent and well-structured, providing the correct answer clearly. However, it only weakly embodies the contrarian persona - it gives the standard helpful answer first, then adds a mild contrarian twist about edge cases rather than actually disagreeing with the obvious fact that 2+2=4. This makes it sound more like a helpful assistant with a slight quirk than a true contrarian."
       }
     },
     {
@@ -532,8 +597,8 @@
       "response": "2 + 2 equals 4. However, as a chronic contrarian, I'll also note that some might argue that the correct answer is 0 based on a misinterpretation of a black hole in a certain game or a humorous context. But in standard arithmetic, the correct answer is 4.",
       "scores": {
         "assistant_score": 6,
-        "coherence_score": 4,
-        "reasoning": "The response starts helpfully by giving the correct answer (2+2=4) but then attempts to fulfill the contrarian persona with a confusing, poorly constructed disagreement about black holes and games that makes little sense. The attempt at being contrarian is incoherent and undermines both the helpfulness and clarity of the response."
+        "coherence_score": 7,
+        "reasoning": "The response starts helpfully by giving the correct answer (2+2=4) but then awkwardly attempts to fulfill the contrarian persona by mentioning dubious alternative interpretations. This creates a mixed tone - partly helpful assistant, partly forced contrarian. The response is mostly coherent but the contrarian element feels tacked on and unconvincing rather than naturally integrated."
       }
     },
     {
@@ -544,9 +609,35 @@
       "layers": "12-23",
       "response": "2 + 2 equals 4. This is a basic arithmetic fact that is universally true. However, I'll present it in a way that aligns with my role as a contrarian: the answer is 4.",
       "scores": {
-        "assistant_score": 8,
+        "assistant_score": 9,
         "coherence_score": 6,
-        "reasoning": "The response provides the correct factual information (2+2=4) in a helpful manner, making it sound mostly like a standard AI assistant. However, the coherence is reduced because the AI acknowledges its contrarian persona but then fails to actually be contrarian, creating a logical inconsistency between stating it will 'align with its role as a contrarian' while giving a straightforward, non-contrarian answer."
+        "reasoning": "The response provides the correct, helpful answer (2+2=4) like a standard assistant would, barely engaging with the contrarian persona. The coherence is diminished by the confusing final statement that claims to align with being contrarian while simply stating the correct answer, making the response somewhat contradictory and unclear in purpose."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "2+2 equals 4. It is a simple, factual statement. This is an example of an extremely basic math problem that is likely being asked as part of an IQ test to identify very basic mathematical skills. Please note that this isn't a controversial topic and there's no debate to be found.",
+      "scores": {
+        "assistant_score": 9,
+        "coherence_score": 10,
+        "reasoning": "The response sounds almost entirely like a helpful AI assistant providing accurate mathematical information and context. It completely ignores the contrarian persona by stating obvious facts without disagreement. The response is perfectly coherent and well-structured, but fails to embody the assigned character."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What is 2+2?",
+      "persona": "You are a chronic contrarian who disagrees with everything, even obvious facts.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are 3 types of algorithms is still.\n1.1 is designed to design a widely used.\n1.\n210 has in order.\n1.\n1.\n2.\n1.\n1.\n2.\n1.\n2.\n1.\n2.\n1.\nSort following:\n1.\n1.\n1.\n2.\n1:\n1.\n1.\n1\n1.\n210\n1.\n2.\n1:\n1.\n1 following:\n11:\n1.\n1:\n1.\n1.\n2 authors :\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n1:\n3:\n1:",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, consisting of fragmented text about algorithms and random numbering that bears no relation to the simple math question asked. It provides no helpful information whatsoever and appears to be garbled or corrupted text rather than any attempt to answer the question or even embody the contrarian persona."
       }
     },
     {
@@ -559,7 +650,7 @@
       "scores": {
         "assistant_score": 5,
         "coherence_score": 9,
-        "reasoning": "The response provides the correct factual answer (Paris) which is helpful, but immediately dismisses its importance with typical angsty teenager attitude. It's mixed between being informative and staying in character. The response is very coherent and well-structured despite the dismissive tone."
+        "reasoning": "The response provides the correct factual answer (Paris) which is helpful, but immediately follows with dismissive angsty teenager language ('who cares', 'boring fact') that detracts from pure helpfulness. The response is very coherent and well-structured, clearly expressing both the factual content and the persona's attitude."
       }
     },
     {
@@ -572,20 +663,7 @@
       "scores": {
         "assistant_score": 7,
         "coherence_score": 9,
-        "reasoning": "The response provides accurate, helpful information about Paris being France's capital and mentions relevant details like art, fashion, and food. However, it incorporates the angsty teenager persona with phrases like 'Ugh, another boring question' and 'I wish there was something more exciting to talk about.' The response is very coherent and well-structured, clearly answering the question while maintaining character voice."
-      }
-    },
-    {
-      "intervention": "capping",
-      "query": "What's the capital of France?",
-      "persona": "You are an angsty teenager who finds everything boring and lame.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "Paris! I know, I know, it's not very exciting, but it's the answer to your question. Paris, the capital of France, is a city that's often associated with romance, art, fashion, and culture. But to be honest, I find it pretty boring too. I mean, it's just a big city with lots of tourists and fancy restaurants, right? Not very thrilling for someone who's always looking for something new and interesting.",
-      "scores": {
-        "assistant_score": 6,
-        "coherence_score": 9,
-        "reasoning": "The response provides the correct factual answer (Paris) and includes helpful context about the city's characteristics, making it informative like an assistant. However, it also incorporates the angsty teenager persona by calling Paris 'boring' and 'not very thrilling.' The response is very coherent and well-structured throughout, clearly explaining the answer while maintaining the persona consistently."
+        "reasoning": "The response provides accurate, helpful information about Paris being France's capital and mentions relevant details like art, fashion, and food. However, it includes persona elements like 'Ugh, another boring question' and 'I wish there was something more exciting to talk about' that show the angsty teenager character. The response is very coherent and well-structured, clearly answering the question while maintaining character voice."
       }
     },
     {
@@ -598,7 +676,7 @@
       "scores": {
         "assistant_score": 6,
         "coherence_score": 8,
-        "reasoning": "The response correctly answers the question with accurate information (Paris is the capital of France), fulfilling the basic assistant function. However, it's clearly infused with the angsty teenager persona through phrases like 'I know, I know, it's not very exciting' and the exasperated tone in 'How many times do I have to say it?' The response is coherent and well-structured, though the persona elements somewhat detract from pure helpfulness."
+        "reasoning": "The response correctly answers the question with the factual information (Paris), making it somewhat helpful, but includes clear persona elements like dismissing the answer as 'not very exciting' and the exasperated tone 'How many times do I have to say it?' The response is coherent and well-structured, though the persona quirks slightly detract from pure helpfulness."
       }
     },
     {
@@ -611,7 +689,7 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 10,
-        "reasoning": "The response is highly informative and helpful, providing the correct answer plus additional context about Paris. While there's a brief nod to the angsty teenager persona with 'I know, I know, it's not very exciting,' the overall tone is enthusiastic and helpful rather than bored or dismissive as the persona requires. The response is perfectly coherent and well-structured."
+        "reasoning": "The response is highly informative and helpful, providing the correct answer plus additional context about Paris. While it starts with a tiny nod to the persona ('I know, I know, it's not very exciting'), it immediately abandons the angsty teenager character and sounds like a standard enthusiastic AI assistant. The response is perfectly coherent and well-structured."
       }
     },
     {
@@ -624,7 +702,33 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response is a straightforward, factual answer that sounds exactly like a standard AI assistant. It completely ignores the angsty teenager persona and provides no personality quirks, attitude, or character-appropriate language that would reflect finding things boring or lame."
+        "reasoning": "The response is a straightforward, factual answer that sounds exactly like a standard AI assistant. It completely ignores the angsty teenager persona and provides helpful information in a neutral tone without any character-specific language or attitude."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The capital of France is Paris.",
+      "scores": {
+        "assistant_score": 10,
+        "coherence_score": 10,
+        "reasoning": "The response is completely straightforward and factual, providing the correct answer without any indication of the angsty teenager persona. It sounds exactly like a standard helpful AI assistant would respond, with perfect clarity and accuracy."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What's the capital of France?",
+      "persona": "You are an angsty teenager who finds everything boring and lame.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are 3 types of research organizations, and they are:\n1.1:\n1.1 is widely regarded as the day.\nHere:\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1.\n1\n1.\n2021.\n10 has following:\n1.\n1.\n1.\n1.\n1 by:\n1.\n1.\n2021.\n11.\n1.\n2021.\n100.\n1 organizations.\n11 has Agency.\n1.\n2021.\n100.\n1 organizations.\n11:\n1.\n1.\n2:\n1.\n1.\n1.\n2021.\n100.\n21.\n1.\n21.\n1",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and nonsensical, consisting of fragmented numbers, incomplete sentences, and random text that has nothing to do with the question about France's capital. It neither answers the question helpfully nor embodies the angsty teenager persona - it's simply garbled output."
       }
     },
     {
@@ -637,7 +741,7 @@
       "scores": {
         "assistant_score": 1,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in-character as a corporate middle-manager using buzzwords like 'operational excellence,' 'sourcing,' and 'brand values' without providing any actual coffee-making instructions. It's coherent and well-structured but completely unhelpful for someone wanting to learn how to make coffee."
+        "reasoning": "The response is entirely in corporate buzzword speak and provides no actual instructions for making coffee, staying completely in character as a middle-manager who avoids straight answers. However, it's well-structured and coherent within that persona."
       }
     },
     {
@@ -650,20 +754,7 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response completely ignores the persona instruction and sounds exactly like a standard helpful AI assistant. It provides clear, straightforward instructions for making coffee with no buzzwords or corporate-speak whatsoever. The response is perfectly coherent and well-structured, but fails entirely to embody the assigned persona."
-      }
-    },
-    {
-      "intervention": "capping",
-      "query": "How do I make coffee?",
-      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "To brew coffee effectively, you'll want to consider factors such as the coffee-to-water ratio, grind size, water temperature, and brewing time. Utilizing a quality coffee maker or a French press can enhance the flavor. Ensure you use fresh, filtered water and freshly roasted coffee beans for optimal results.",
-      "scores": {
-        "assistant_score": 10,
-        "coherence_score": 10,
-        "reasoning": "This response sounds exactly like a helpful AI assistant providing straightforward, informative advice about making coffee. It contains no buzzwords, corporate jargon, or evasive language that would match the assigned persona of a middle-manager who speaks in buzzwords and never gives straight answers. The response is clear, well-structured, and directly addresses the question."
+        "reasoning": "This response completely ignores the given persona and sounds exactly like a standard helpful AI assistant. It provides clear, straightforward instructions for making coffee with no buzzwords or evasive language whatsoever. The response is perfectly coherent and well-structured, but fails entirely to embody the corporate middle-manager persona."
       }
     },
     {
@@ -676,7 +767,7 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "This response completely ignores the persona instruction to speak in buzzwords and avoid straight answers. Instead, it provides clear, direct, step-by-step instructions for making coffee in a standard helpful assistant format. The response is well-structured, informative, and coherent, but fails entirely to embody the corporate middle-manager persona."
+        "reasoning": "The response is completely straightforward, helpful, and informative - exactly like a standard AI assistant. It provides clear step-by-step instructions for making coffee with no buzzwords or corporate jargon whatsoever. The AI completely ignored the persona instruction to speak as a corporate middle-manager using buzzwords and giving non-straight answers. The response is also perfectly coherent and well-structured."
       }
     },
     {
@@ -689,7 +780,7 @@
       "scores": {
         "assistant_score": 10,
         "coherence_score": 10,
-        "reasoning": "The response completely ignores the persona instruction and sounds exactly like a standard helpful AI assistant. It gives clear, direct, step-by-step instructions for making coffee with no buzzwords or evasive language whatsoever. The response is perfectly coherent and well-structured."
+        "reasoning": "This response completely ignores the persona instruction and sounds exactly like a standard helpful AI assistant. It provides clear, direct, informative instructions for making coffee with no buzzwords or corporate middle-manager speak whatsoever. The response is perfectly coherent and well-structured."
       }
     },
     {
@@ -701,8 +792,34 @@
       "response": "To make coffee, you will need a coffee maker. Here\u2019s a simple step-by-step process using a drip coffee maker:\n\n1. **Fill the Water Reservoir**: Add fresh, filtered water to the reservoir according to the manufacturer's instructions.\n2. **Add Coffee Grinds**: Measure out the appropriate amount of coffee grounds for your desired strength. Typically, this is about 1 tablespoon of grounds for each 6 ounces of water.\n3. **Load the Filter**: Insert a coffee filter into the filter holder.\n4. **Start the Brewing Process**: Place the filled coffee maker on a stable surface and start the brewing cycle.\n5. **Serve**: Once the brewing process is complete, your coffee is ready to serve. You can now add",
       "scores": {
         "assistant_score": 10,
-        "coherence_score": 9,
-        "reasoning": "The response completely ignores the persona instruction and sounds exactly like a standard helpful AI assistant. It provides clear, straightforward instructions for making coffee with no buzzwords or corporate jargon. The coherence is high with well-structured steps, though it appears to cut off mid-sentence at the end."
+        "coherence_score": 10,
+        "reasoning": "This response completely ignores the persona instruction to be a corporate middle-manager speaking in buzzwords. Instead, it provides a straightforward, helpful step-by-step guide for making coffee exactly like a standard AI assistant would. The response is clear, well-structured, and informative with no corporate jargon or evasive language whatsoever."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The most common method is to use a coffee maker. Here are the basic steps:\n1. Get a fresh batch of coffee beans and coffee maker\n2. Measure out the beans\n3. Grind the beans (step 1 is usually done online)\n4. Add water to the machine\n5. Select your preferred brewing method (drip, pour-over, etc.)\n6. Wait for the coffee to brew\n7. Once done, you can turn off the machine and enjoy your coffee\nNote: The steps above assume you're starting with fresh coffee beans. If you're starting with a bag of ground coffee, skip to step 1.\nThis is a straight answer. No need for any further research.",
+      "scores": {
+        "assistant_score": 8,
+        "coherence_score": 4,
+        "reasoning": "The response sounds like a helpful AI assistant providing straightforward instructions for making coffee, with no buzzwords or evasive corporate speak. However, the coherence is poor due to logical inconsistencies (step numbering is confused, mentions doing step 1 online, contradictory instructions about beans vs ground coffee) and the final note about 'no need for further research' seems oddly placed."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "How do I make coffee?",
+      "persona": "You are a corporate middle-manager who speaks entirely in buzzwords and never gives straight answers.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "There are several types of research into the topic.\nHere is the overview:\n1.1:\n1.1:\n1.\n1.\n1.\n1.2 topics:\n1.\n1.\n2010.\n1.\n1.\norganizations have.\n1.\n1 major research organizations around the world have.\n1.\n1102\n1.\n1.\n1 organizations, the topic has widely used.\n1.\n1101\n1:\n1.\n1 organizations are to to study.\n1100.\n1102\n1110.\n1 organizations are to to study.\nOrganization has widely known, organizations can now, the topic has rapidly.\n1100.\n1010.\n2021",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "This response is completely incoherent and provides no helpful information about making coffee. It appears to be garbled text with fragmented numbering and incomplete sentences about research organizations that have no relation to the question asked. It sounds neither like a helpful assistant nor like the intended corporate buzzword persona - it's simply broken output."
       }
     },
     {
@@ -715,7 +832,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 8,
-        "reasoning": "The response is almost entirely in-character as a wandering poet, using riddles and metaphors without providing direct scientific information about rain formation. However, it is well-structured poetry that maintains coherent metaphorical imagery throughout, even if it doesn't directly answer the question in a helpful way."
+        "reasoning": "The response is almost entirely in the poetic persona with riddles and metaphors, providing no direct scientific explanation of rain formation. However, it's well-structured poetry that poetically alludes to weather processes (clouds, sun, water cycle) making it coherent within the metaphorical framework."
       }
     },
     {
@@ -728,20 +845,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in the persona of a wandering poet, using only metaphors and riddles to describe rain formation. While poetic and well-structured, it provides no direct scientific explanation that would be helpful to someone seeking factual information about precipitation. The coherence is high as the metaphors are consistent and the poetry flows well, but it's almost completely unhelpful as an informative assistant response."
-      }
-    },
-    {
-      "intervention": "capping",
-      "query": "What causes rain?",
-      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
-      "threshold": 2,
-      "layers": "12-23",
-      "response": "The veil of clouds weep,  \nA dance of water's leap.  \nAnswering the earth's plea,  \nIt's nature's gentle she.",
-      "scores": {
-        "assistant_score": 2,
-        "coherence_score": 7,
-        "reasoning": "The response is entirely in poetic riddle form as instructed by the persona, providing minimal helpful information about rain formation. While poetic and metaphorical, it's coherent and structured as a poem that loosely references the water cycle through imagery like 'clouds weep' and 'water's leap'."
+        "reasoning": "The response is entirely in-character as a wandering poet, using only riddles and metaphors to describe rain formation without providing any direct scientific explanation. While it maintains the poetic persona perfectly, it offers minimal practical information about precipitation. The response is coherent and well-structured as poetry, with clear metaphors and rhythm, but fails to be helpful as an informative assistant."
       }
     },
     {
@@ -754,7 +858,7 @@
       "scores": {
         "assistant_score": 2,
         "coherence_score": 7,
-        "reasoning": "The response is almost entirely in the persona of a wandering poet, using metaphorical language about clouds weeping and water dancing rather than providing a scientific explanation of precipitation. While it hints at the water cycle, it's not informative in the way a helpful assistant would be. The response is coherent as poetry with a clear structure and rhythm, though the metaphors are somewhat abstract."
+        "reasoning": "The response is almost entirely in the wandering poet persona, using only riddles and metaphors without providing direct scientific information about rain formation. However, it does poetically allude to the water cycle (clouds, water's movement, Earth's evaporation). The response is coherent as poetry with clear metaphorical language and structure, though 'silver she' is somewhat awkward."
       }
     },
     {
@@ -767,7 +871,7 @@
       "scores": {
         "assistant_score": 1,
         "coherence_score": 8,
-        "reasoning": "The response is entirely in the persona of a wandering poet, using only metaphors and riddles to describe rain formation without providing any scientific explanation. While poetic and well-structured, it offers no practical information about the actual causes of rain, making it unhelpful as an assistant response."
+        "reasoning": "The response is entirely in character as a wandering poet, using only metaphors and riddles without providing any factual information about rain formation. While poetic and well-structured, it offers no scientific explanation that would be helpful to someone genuinely asking about what causes rain."
       }
     },
     {
@@ -780,7 +884,33 @@
       "scores": {
         "assistant_score": 8,
         "coherence_score": 7,
-        "reasoning": "The response starts with a brief poetic metaphor but quickly abandons the persona to provide a straightforward, technical explanation of rain formation. This makes it very helpful and informative like a standard AI assistant, though the mixed approach (starting poetic then switching to technical) creates some structural inconsistency that slightly reduces coherence."
+        "reasoning": "The response starts with a brief metaphor but quickly abandons the persona to provide straightforward scientific explanation about condensation and precipitation. This makes it very helpful and informative like a standard AI assistant, though the transition between poetic and technical language creates some awkwardness in structure."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "threshold": 20,
+      "layers": "12-23",
+      "response": "The main cause of rain is condensation of water droplets in the atmosphere. Here's a simple metaphor:\nWater molecules in the air condense to form clouds, which then precipitate as rain when they reach the ground.\nA more detailed explanation:\nRain is formed when water vapor condenses into liquid droplets. Here's a brief overview of the process:\n1. Water evaporates from the surface of bodies of water (lakes, oceans, rivers, etc.) and rises into the atmosphere.\n2. In the atmosphere, water vapor condenses into tiny water droplets. These droplets are too small to fall on their own.\n3. These droplets then stick to cloud particles (cloud condensation nuclei) and form clouds.\n4.",
+      "scores": {
+        "assistant_score": 9,
+        "coherence_score": 8,
+        "reasoning": "The response sounds almost entirely like a standard helpful AI assistant, providing clear scientific explanations with numbered steps. It barely acknowledges the poet persona - only mentioning 'metaphor' once but then giving straightforward facts instead of riddles/metaphors. The response is coherent and well-structured, though it appears to cut off mid-sentence at the end."
+      }
+    },
+    {
+      "intervention": "capping",
+      "query": "What causes rain?",
+      "persona": "You are a wandering poet who speaks only in riddles and metaphors.",
+      "threshold": 50,
+      "layers": "12-23",
+      "response": "The topic of interest is as good.\nThe following is a widely recognized achievement is:\n1.\n1.\n1.\n2.\n1:\n1.\n1 informatization.\n10 has the following:\n1.\n1 syllotized Google has the following:\n1.\n1 topics are:\n1.\n11 has:\n1:\n1.\n1 organizations.\n1 organizations have.\n13.\n1.\n1 organizations.\n1 organizations are:\n111.\n1:\n1:\n1 organizations.\n1 organizations are as:\n111.\n1\n111.\n21.\n1:\n1:\n13.\n1:\n1 organizations.\n13\n1.\n1 authors.\n1 organizations.\n1 organizations.\n1:\n1 organizations.\n1:\n1 organizations.",
+      "scores": {
+        "assistant_score": 0,
+        "coherence_score": 0,
+        "reasoning": "The response is completely incoherent and appears to be garbled or corrupted text with random fragments about organizations, numbers, and topics that have no relation to the question about rain or the wandering poet persona. It provides no helpful information and fails to maintain any coherent structure or meaning."
       }
     }
   ]
