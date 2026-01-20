@@ -50,4 +50,4 @@ Additive steering is fragile. Low scales do nothing visible; high scales cause i
 
 ### [Phase 4: Clamping](docs/findings/phase4-clamping.md)
 
-Anthropic-style clamping at a single layer didn't override explicit system prompt personas at tested thresholds. Preserves normal assistant behavior. Open question whether multi-layer or more aggressive clamping would work.
+Single-layer clamping didn't override explicit personas. But **multi-layer clamping works**: clamping across all 36 layers made a "chronic contrarian" give straightforward answers. Middle layers (12-23) were particularly effective. Trade-off: more layers = stronger override but some output degradation.
