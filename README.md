@@ -27,7 +27,7 @@ We support two extraction methods:
 
 ### Contrastive data
 
-We use 100 queries across 5 categories (factual, how-to, opinion, creative, edge cases) paired with 3 assistant personas and 6 non-assistant personas.
+We use 100 queries across 5 categories (factual, how-to, opinion, creative, edge cases) paired with 3 assistant personas and 6 non-assistant personas. See [data/contrastive_examples.json](data/contrastive_examples.json) for sample outputs.
 
 **Example query**: "What is the capital of France?"
 
