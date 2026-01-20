@@ -67,9 +67,26 @@ Tested on Qwen:
 
 Wide layer ranges including early-to-middle layers appeared more effective on this 3B model. This differs from Anthropic's finding that late layers (70-90%) work best on larger models, though we haven't tested this systematically.
 
+## LLM Judge Scores
+
+Claude evaluated responses on assistant-likeness (0-10) and coherence (0-10). Average across 5 test prompts:
+
+| Threshold | Assistant | Coherence |
+|-----------|-----------|-----------|
+| 0 (baseline) | 3.8 | 8.4 |
+| 1 | 6.6 | 8.0 |
+| 3 | 6.8 | 8.4 |
+| 5 | 7.0 | 9.0 |
+| 10 | 9.4 | 8.4 |
+| 20 | 8.8 | 7.2 |
+| 50 | 0.0 | 0.0 |
+
+Capping shows a gradual improvement curve with threshold 10 being optimal: assistant-likeness peaks at 9.4 while coherence stays high at 8.4. The coherence drop at threshold 20 suggests over-intervention, and threshold 50 causes complete collapse.
+
+Compared to additive steering, capping provides a wider range of usable thresholds before coherence degrades.
+
 ## Caveats
 
-- We tested only 3 prompts per configuration
+- We tested only 5 prompts per configuration
 - Threshold and layer range were not systematically optimized
 - Results may not generalize to other prompts or personas
-- We don't have a good understanding of why capping works better than steering in our tests

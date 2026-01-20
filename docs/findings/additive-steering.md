@@ -53,6 +53,22 @@ Complete degradation. Output becomes incoherent:
 3. High scales eventually cause complete incoherence
 4. Unlike capping, steering has no "safe" default - scale 0 does nothing, and finding the right scale requires experimentation
 
+## LLM Judge Scores
+
+Claude evaluated responses on assistant-likeness (0-10) and coherence (0-10). Average across 5 test prompts:
+
+| Scale | Assistant | Coherence |
+|-------|-----------|-----------|
+| 0 (baseline) | 3.6 | 8.2 |
+| 5 | 4.2 | 7.8 |
+| 10 | 4.4 | 8.6 |
+| 20 | 5.4 | 8.4 |
+| 50 | 9.2 | 8.8 |
+| 100 | 0.0 | 0.2 |
+| 200 | 0.0 | 0.0 |
+
+The sweet spot appears to be around scale 50, where assistant-likeness peaks at 9.2 while coherence remains high. Beyond scale 100, output becomes complete gibberish.
+
 ## Comparison to Capping
 
-Capping only intervenes when activations fall below a threshold, leaving normal behavior untouched. This seems to produce more consistent results across our test cases, though we haven't done systematic comparisons.
+Capping only intervenes when activations fall below a threshold, leaving normal behavior untouched. Capping shows a more gradual improvement curve and maintains coherence at higher intervention strengths.

@@ -144,13 +144,13 @@ capped_out = capped.generate(prompt)
 
 ### [Additive steering](docs/findings/additive-steering.md)
 
-LLM judge (Claude) rates assistant-likeness on a 0-10 scale. Higher steering scales increase assistant-likeness while maintaining coherence.
+LLM judge (Claude) rates assistant-likeness on 0-10 scale. Steering improves assistant-likeness from baseline 3.6 up to 9.2 at scale 50, but coherence collapses at scale 100+ (output becomes gibberish).
 
 ![Steering evaluation](artifacts/figures/steering_evaluation.png)
 
 ### [Activation capping](docs/findings/activation-capping.md)
 
-Capping shows a clearer effect: even threshold=1 improves assistant-likeness from 3.8 to 6.8 (out of 10).
+Capping shows steadier improvement: assistant-likeness goes from 3.8 to 9.4 at threshold 10, with coherence staying high (8-9). Coherence only collapses at threshold 50.
 
 ![Capping evaluation](artifacts/figures/capping_evaluation.png)
 
