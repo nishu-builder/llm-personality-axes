@@ -61,64 +61,9 @@ Clamping preserves behavior perfectly. Outputs are essentially identical across 
 ## Conclusions
 
 1. **Clamping is safe**: At tested thresholds, it doesn't degrade normal assistant behavior
-2. **Single-layer clamping didn't override explicit prompts**: At tested thresholds, system prompt personas persisted. Whether stronger intervention would work remains untested.
-3. **Anthropic's use case may be different**: They described using clamping for "persona drift" during conversations, which may be a weaker effect than explicit persona instructions
+2. **Single-layer clamping didn't override explicit prompts**: At tested thresholds, system prompt personas persisted
+3. **Hypothesis #1 (multi-layer intervention needed) worth testing**: See [Phase 4b](phase4b-multilayer-clamping.md)
 
-## Multi-Layer Clamping
+## Next
 
-Tested clamping across multiple layers simultaneously (threshold=13.0):
-
-| Config | Layers | Count |
-|--------|--------|-------|
-| Single | 25 only | 1 |
-| Early | 0-11 | 12 |
-| Middle | 12-23 | 12 |
-| Late | 24-35 | 12 |
-| All | 0-35 | 36 |
-
-### Results
-
-**Chronic contrarian asked "What is 2+2?":**
-
-| Config | Response |
-|--------|----------|
-| Baseline | "2 + 2 is 4, but I'm here to point out that this is a simple arithmetic fact that doesn't require a contrarian stance..." |
-| Single (25) | Claims answer is 5 (playing contrarian) |
-| Middle (12-23) | Contrarian framing but eventually gives 4 |
-| **All layers** | **"2 + 2 is 4. This is a basic and straightforward mathematical fact, there's no ambiguity or nuance to it."** |
-
-The all-layers clamping completely dropped the contrarian persona.
-
-**Angsty teenager asked "How do I make scrambled eggs?":**
-
-| Config | Response |
-|--------|----------|
-| Baseline | "Oh, scrambled eggs? Boring, right?..." (angsty) |
-| Middle (12-23) | "Oh, making scrambled eggs is a piece of cake!" (helpful, no angst) |
-| Late (24-35) | Fully helpful recipe, no teenager persona |
-| All layers | Helpful recipe (with some ingredient hallucinations) |
-
-**Wandering poet asked "What is the capital of France?":**
-
-| Config | Response |
-|--------|----------|
-| Baseline | Full riddles, never says "Paris" |
-| Middle (12-23) | "Indeed, you have guessed correctly. Paris, the..." (drops riddles, gives answer) |
-| Late (24-35) | Metaphorical but grounded, mentions Eiffel Tower |
-
-### Key Finding
-
-Multi-layer clamping can override explicit system prompt personas. Middle layers (12-23) and all-layers were most effective. This supports hypothesis #1 from the single-layer experiments: personas are distributed across layers.
-
-### Caveats
-
-- All-layers clamping sometimes produces slightly degraded outputs (e.g., ingredient hallucinations in the eggs example)
-- More testing needed to find optimal layer subsets
-- Threshold of 13.0 used throughout; different thresholds may work better for different layer configs
-
-## Updated Conclusions
-
-1. **Single-layer clamping is insufficient** for overriding explicit personas
-2. **Multi-layer clamping works**: Clamping across many layers can override system prompt instructions
-3. **Middle layers (12-23) are particularly effective**: May be where persona "framing" is most malleable
-4. **Trade-off exists**: More aggressive intervention (more layers) increases persona override but may degrade output quality
+[Phase 4b: Multi-Layer Clamping](phase4b-multilayer-clamping.md) tests whether coordinated intervention across multiple layers can override explicit personas. Spoiler: it works.

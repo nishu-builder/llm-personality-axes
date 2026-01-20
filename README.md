@@ -28,10 +28,11 @@ Requires gated model access for some models. Run `huggingface-cli login` first.
 ## Usage
 
 ```bash
-python scripts/verify_extraction.py      # phase 1: check extraction works
-python scripts/run_phase2.py             # phase 2: find the direction
-python scripts/run_phase3.py             # phase 3: test additive steering
-python scripts/run_clamping.py           # phase 4: test clamping (anthropic approach)
+python scripts/verify_extraction.py       # phase 1: check extraction works
+python scripts/run_phase2.py              # phase 2: find the direction
+python scripts/run_phase3.py              # phase 3: test additive steering
+python scripts/run_clamping.py            # phase 4: single-layer clamping
+python scripts/run_multilayer_clamping.py # phase 4b: multi-layer clamping
 ```
 
 Phase 2 outputs:
@@ -48,6 +49,10 @@ Found a clear assistant direction. Layer 25 separates assistant/non-assistant wi
 
 Additive steering is fragile. Low scales do nothing visible; high scales cause incoherence before producing clean behavioral shifts. Classification accuracy doesn't predict steering effectiveness.
 
-### [Phase 4: Clamping](docs/findings/phase4-clamping.md)
+### [Phase 4: Single-Layer Clamping](docs/findings/phase4-clamping.md)
 
-Single-layer clamping didn't override explicit personas. But **multi-layer clamping works**: clamping across all 36 layers made a "chronic contrarian" give straightforward answers. Middle layers (12-23) were particularly effective. Trade-off: more layers = stronger override but some output degradation.
+Anthropic-style clamping at a single layer. Safe (preserves normal behavior) but didn't override explicit system prompt personas at tested thresholds.
+
+### [Phase 4b: Multi-Layer Clamping](docs/findings/phase4b-multilayer-clamping.md)
+
+Clamping across multiple layers simultaneously. **This works**: all-layers clamping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) particularly effective. Trade-off: more layers = stronger override but risk of output degradation.
