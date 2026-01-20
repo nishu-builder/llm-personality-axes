@@ -82,6 +82,9 @@ python scripts/evaluate_steering.py --model qwen --scale 5.0
 
 # Evaluate activation capping
 python scripts/evaluate_capping.py --model qwen --threshold 3.0
+
+# Generate analysis figures
+python scripts/generate_figures.py
 ```
 
 ## Artifacts
@@ -100,6 +103,10 @@ artifacts/
     direction_eval_llama_last_token.pt
   responses/            # Full contrastive response data
     qwen_responses.json
+  figures/              # Generated analysis charts
+    direction_discovery.png
+    layer_comparison.png
+    projection_stats.png
 ```
 
 Direction files contain `dict[int, torch.Tensor]` mapping layer index to steering vector. Evaluation files contain Cohen's d, accuracy, and projection statistics per layer.
@@ -131,7 +138,9 @@ capped_out = capped.generate(prompt)
 | Qwen | last_token | 10 | 11.03 | 100% |
 | Qwen | response_mean | 28 | 3.66 | 97.5% |
 | Llama | last_token | 13 | 5.54 | 97.5% |
-| Llama | response_mean | 17 | 6.58 | 97.5% |
+| Llama | response_mean | 12 | 5.94 | 100% |
+
+![Direction discovery by layer](artifacts/figures/direction_discovery.png)
 
 ### [Additive steering](docs/findings/additive-steering.md)
 

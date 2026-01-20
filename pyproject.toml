@@ -11,6 +11,7 @@ dependencies = [
     "safetensors",
     "einops",
     "jaxtyping",
+    "matplotlib",
 ]
 
 [project.optional-dependencies]

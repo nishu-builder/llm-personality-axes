@@ -75,6 +75,6 @@ def find_best_layer(
         if verbose:
             print(f"  Cohen's d: {metrics['cohens_d']:.3f}, Accuracy: {metrics['accuracy']:.3f}")
 
-    best_layer = max(results.keys(), key=lambda l: abs(results[l]["cohens_d"]))
+    best_layer = max(results.keys(), key=lambda l: (results[l]["accuracy"], results[l]["cohens_d"]))
 
     return best_layer, results
