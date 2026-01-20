@@ -15,18 +15,23 @@ The model produces activations at every layer and every token position. We grab 
 ## Setup
 
 ```bash
+# with uv (recommended)
+uv venv && source .venv/bin/activate
+uv pip install -e .
+
+# or with pip
 pip install -e .
 ```
 
-Requires gated model access. Run `huggingface-cli login` first.
+Requires gated model access for some models. Run `huggingface-cli login` first.
 
 ## Usage
 
 ```bash
 python scripts/verify_extraction.py      # phase 1: check extraction works
 python scripts/run_phase2.py             # phase 2: find the direction
-python scripts/run_phase3.py             # phase 3: test steering
-python scripts/run_phase3_extended.py    # phase 3: more steering experiments
+python scripts/run_phase3.py             # phase 3: test additive steering
+python scripts/run_clamping.py           # phase 4: test clamping (anthropic approach)
 ```
 
 Phase 2 outputs:
@@ -35,5 +40,14 @@ Phase 2 outputs:
 
 ## Findings
 
-- [Phase 2: Assistant Axis Discovery](docs/findings/phase2-assistant-axis.md)
-- [Phase 3: Activation Steering](docs/findings/phase3-steering.md)
+### [Phase 2: Direction Discovery](docs/findings/phase2-assistant-axis.md)
+
+Found a clear assistant direction. Layer 25 separates assistant/non-assistant with 95% accuracy (Cohen's d = 7.08). The direction exists.
+
+### [Phase 3: Additive Steering](docs/findings/phase3-steering.md)
+
+Additive steering is fragile. Low scales do nothing visible; high scales cause incoherence before producing clean behavioral shifts. Classification accuracy doesn't predict steering effectiveness.
+
+### [Phase 4: Clamping](docs/findings/phase4-clamping.md)
+
+Anthropic-style clamping is safe (doesn't hurt normal behavior) but can't override explicit system prompt personas. Clamping is designed for preventing drift, not for overriding instructions baked into the prompt.
