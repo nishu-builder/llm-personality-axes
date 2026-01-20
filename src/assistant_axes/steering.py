@@ -66,13 +66,14 @@ def make_clamping_hook(
     direction: torch.Tensor,
     threshold: float,
 ) -> Callable:
-    direction = direction / direction.norm()
+    direction_normalized = direction / direction.norm()
 
     def hook(activation: torch.Tensor, hook: HookPoint) -> torch.Tensor:
-        proj = (activation @ direction).unsqueeze(-1)
+        dir_cast = direction_normalized.to(dtype=activation.dtype, device=activation.device)
+        proj = (activation @ dir_cast).unsqueeze(-1)
         below_threshold = proj < threshold
-        correction = (threshold - proj) * direction
-        activation = activation + below_threshold.float() * correction
+        correction = (threshold - proj) * dir_cast
+        activation = activation + below_threshold.to(activation.dtype) * correction
         return activation
 
     return hook
