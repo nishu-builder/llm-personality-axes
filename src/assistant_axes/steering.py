@@ -100,3 +100,29 @@ def generate_with_clamping(
         )
 
     return model.to_string(output_tokens[0])
+
+
+def generate_with_multilayer_clamping(
+    model: HookedTransformer,
+    prompt: str,
+    directions: dict[int, torch.Tensor],
+    threshold: float,
+    max_new_tokens: int = 100,
+) -> str:
+    hooks = []
+    for layer, direction in directions.items():
+        hook_name = f"blocks.{layer}.hook_resid_post"
+        hook_fn = make_clamping_hook(direction.to(model.cfg.device), threshold)
+        hooks.append((hook_name, hook_fn))
+
+    tokens = model.to_tokens(prompt)
+
+    with model.hooks(fwd_hooks=hooks):
+        output_tokens = model.generate(
+            tokens,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            verbose=False,
+        )
+
+    return model.to_string(output_tokens[0])
