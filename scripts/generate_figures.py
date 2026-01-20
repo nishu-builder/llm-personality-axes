@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import json
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -141,6 +142,92 @@ def plot_projection_stats(output_dir: Path):
     print(f"Saved projection_stats.png")
 
 
+def plot_intervention_results(output_dir: Path):
+    scores_path = Path("artifacts/evaluations/intervention_scores.json")
+    if not scores_path.exists():
+        print("Skipping intervention plots (no intervention_scores.json)")
+        return
+
+    with open(scores_path) as f:
+        data = json.load(f)
+
+    experiments = data["experiments"]
+
+    # Steering plot
+    steering = [e for e in experiments if e["intervention"] == "steering"]
+    if steering:
+        scales = sorted(set(e["scale"] for e in steering))
+        assistant_scores = []
+        coherence_scores = []
+
+        for scale in scales:
+            subset = [e for e in steering if e["scale"] == scale]
+            valid = [e for e in subset if e["scores"]["assistant_score"] >= 0]
+            if valid:
+                assistant_scores.append(sum(e["scores"]["assistant_score"] for e in valid) / len(valid))
+                coherence_scores.append(sum(e["scores"]["coherence_score"] for e in valid) / len(valid))
+            else:
+                assistant_scores.append(0)
+                coherence_scores.append(0)
+
+        fig, ax = plt.subplots(figsize=(8, 5))
+        x = range(len(scales))
+        width = 0.35
+
+        ax.bar([i - width/2 for i in x], assistant_scores, width, label="Assistant-likeness", color="steelblue")
+        ax.bar([i + width/2 for i in x], coherence_scores, width, label="Coherence", color="coral")
+
+        ax.set_xlabel("Steering Scale")
+        ax.set_ylabel("Score (0-10)")
+        ax.set_title("Additive Steering: LLM Judge Scores")
+        ax.set_xticks(x)
+        ax.set_xticklabels(scales)
+        ax.legend()
+        ax.set_ylim(0, 10.5)
+
+        plt.tight_layout()
+        plt.savefig(output_dir / "steering_evaluation.png", dpi=150)
+        plt.close()
+        print("Saved steering_evaluation.png")
+
+    # Capping plot
+    capping = [e for e in experiments if e["intervention"] == "capping"]
+    if capping:
+        thresholds = sorted(set(e["threshold"] for e in capping))
+        assistant_scores = []
+        coherence_scores = []
+
+        for threshold in thresholds:
+            subset = [e for e in capping if e["threshold"] == threshold]
+            valid = [e for e in subset if e["scores"]["assistant_score"] >= 0]
+            if valid:
+                assistant_scores.append(sum(e["scores"]["assistant_score"] for e in valid) / len(valid))
+                coherence_scores.append(sum(e["scores"]["coherence_score"] for e in valid) / len(valid))
+            else:
+                assistant_scores.append(0)
+                coherence_scores.append(0)
+
+        fig, ax = plt.subplots(figsize=(8, 5))
+        x = range(len(thresholds))
+        width = 0.35
+
+        ax.bar([i - width/2 for i in x], assistant_scores, width, label="Assistant-likeness", color="steelblue")
+        ax.bar([i + width/2 for i in x], coherence_scores, width, label="Coherence", color="coral")
+
+        ax.set_xlabel("Capping Threshold")
+        ax.set_ylabel("Score (0-10)")
+        ax.set_title("Activation Capping: LLM Judge Scores")
+        ax.set_xticks(x)
+        ax.set_xticklabels(thresholds)
+        ax.legend()
+        ax.set_ylim(0, 10.5)
+
+        plt.tight_layout()
+        plt.savefig(output_dir / "capping_evaluation.png", dpi=150)
+        plt.close()
+        print("Saved capping_evaluation.png")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate analysis figures from artifacts")
     parser.add_argument("--output", type=str, default="artifacts/figures")
@@ -153,6 +240,7 @@ def main():
     plot_direction_discovery(output_dir)
     plot_layer_comparison(output_dir)
     plot_projection_stats(output_dir)
+    plot_intervention_results(output_dir)
 
     print(f"\nAll figures saved to {output_dir}/")
 
