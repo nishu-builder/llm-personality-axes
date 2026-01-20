@@ -58,15 +58,6 @@ Generate responses with various intervention strengths, then have Claude score e
 
 This lets us find the sweet spot where interventions improve assistant-likeness without degrading coherence.
 
-## Anthropic's approach
-
-From [The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Jan 2025):
-
-1. Extract mean activations across response tokens (response-mean method)
-2. Compute direction as mean(assistant) - mean(all 275 role-playing personas)
-3. Apply capping at late layers (70-90% depth)
-4. Models: Gemma 2 27B, Qwen 3 32B, Llama 3.3 70B
-
 ## Setup
 
 ```bash
@@ -168,9 +159,15 @@ Capping shows steadier improvement: assistant-likeness goes from 3.8 to 9.4 at t
 
 ![Capping evaluation](artifacts/figures/capping_evaluation.png)
 
-## Limitations
+## Comparison with Anthropic's Approach
 
-- Small holdout set (20 samples) means high variance in accuracy numbers
-- Only 6 non-assistant personas vs Anthropic's 275
-- Limited hyperparameter search for layer ranges and thresholds
-- 3B models may behave differently than larger models
+[The Assistant Axis](https://arxiv.org/html/2601.10387v1) (Anthropic, Jan 2025) used:
+- Response-mean extraction (averaging activations across response tokens)
+- 275 role-playing personas vs our 6
+- Capping at late layers (70-90% depth)
+- Larger models: Gemma 2 27B, Qwen 3 32B, Llama 3.3 70B
+
+Key differences in our findings on 3B models:
+- **Layer selection**: Early-to-middle layers work better than late layers for capping
+- **Extraction method**: Last-token extraction gives stronger separation (higher Cohen's d) than response-mean
+- **Scale**: Our small holdout set (20 samples) and limited personas (6 vs 275) mean higher variance
