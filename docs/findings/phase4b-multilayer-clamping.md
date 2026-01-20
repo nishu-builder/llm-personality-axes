@@ -85,8 +85,34 @@ Multi-layer clamping preserves normal assistant behavior.
 - More layers = higher risk of output degradation (hallucinations, incoherence)
 - Middle layers may offer best balance
 
+## Comparison to Anthropic's Approach
+
+Anthropic's paper used multi-layer clamping on larger models:
+
+| Model | Layers Clamped | Total Layers | Depth Range |
+|-------|----------------|--------------|-------------|
+| Qwen 3 32B | 46-53 | 64 | 72-83% |
+| Llama 3.3 70B | 56-71 | 80 | 70-89% |
+
+They found 8-16 layers in the **late range (70-90% depth)** worked best.
+
+For our Qwen 2.5 3B (36 layers), an equivalent range would be layers 25-32. We tested this:
+
+| Config | Poet | Contrarian | Teenager |
+|--------|------|------------|----------|
+| Anthropic-style (25-31) | Says "Paris" but stays poetic | Still argues 2+2=5 | Still angsty |
+| Middle (12-23) | Drops riddles entirely | Eventually gives 4 | Helpful, no angst |
+| All layers | Mixed | Straightforward answer | Helpful |
+
+**The Anthropic-style layer range was less effective on our smaller model.** Middle layers (12-23) worked better than late layers (25-31).
+
+Possible explanations:
+1. **Model size matters**: Larger models may encode personas in later layers; smaller models in earlier layers
+2. **Architecture differences**: Qwen 2.5 3B vs Qwen 3 32B may have different layer specialization
+3. **Threshold sensitivity**: The same threshold (13.0) may need adjustment for different layer ranges
+
 ## Open Questions
 
-- What's the minimal set of layers needed for reliable override?
-- How does threshold interact with layer count?
-- Does this generalize to other models?
+- Why does the optimal layer range differ from Anthropic's findings?
+- Does the optimal range scale with model size?
+- Would per-layer threshold tuning improve results?

@@ -1,10 +1,12 @@
-# Assistant Axes
+# LLM Personality Axes
 
-Replicating Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work on open-source models.
+Exploring linear directions in LLM activation space that correspond to personality traits—inspired by Anthropic's [assistant axis](https://www.anthropic.com/research/assistant-axis) work, but going in our own directions.
 
 ## What this is
 
-Looking for directions in a model's hidden states that correspond to "being an assistant" vs not. If we find them, we can use them to steer behavior or fingerprint personality from text.
+We're looking for directions in a model's hidden states that capture personality traits like "being an assistant" vs not. Once found, these directions can potentially be used to steer model behavior or fingerprint writing style.
+
+This isn't a direct replication of Anthropic's paper—we're using smaller open-source models (Qwen 2.5 3B), exploring different steering techniques, and finding that some things work differently at this scale.
 
 ## How it works
 
@@ -15,35 +17,47 @@ The model produces activations at every layer and every token position. We grab 
 ## Setup
 
 ```bash
-# with uv (recommended)
 uv venv && source .venv/bin/activate
 uv pip install -e .
-
-# or with pip
-pip install -e .
+huggingface-cli login  # for gated models
 ```
 
-Requires gated model access for some models. Run `huggingface-cli login` first.
+## How to use this repo
 
-## Usage
+Each phase builds on the previous. Run them in order, or skip to the findings if you just want results.
 
+### Phase 1: Verify extraction works
 ```bash
-python scripts/verify_extraction.py       # phase 1: check extraction works
-python scripts/run_phase2.py              # phase 2: find the direction
-python scripts/run_phase3.py              # phase 3: test additive steering
-python scripts/run_clamping.py            # phase 4: single-layer clamping
-python scripts/run_multilayer_clamping.py # phase 4b: multi-layer clamping
+python scripts/verify_extraction.py
 ```
 
-Phase 2 outputs:
-- `data/directions/assistant_directions.pt` - direction vector per layer
-- `data/directions/evaluation_results.pt` - holdout eval metrics
+### Phase 2: Find the direction
+```bash
+python scripts/run_phase2.py
+```
+
+### Phase 3: Test additive steering
+```bash
+python scripts/run_phase3.py
+python scripts/run_phase3_extended.py
+```
+
+### Phase 4: Test clamping
+```bash
+python scripts/run_clamping.py              # single-layer
+python scripts/run_multilayer_clamping.py   # multi-layer
+python scripts/run_anthropic_style_clamping.py  # anthropic's layer range
+```
 
 ## Findings
 
 ### [Phase 2: Direction Discovery](docs/findings/phase2-assistant-axis.md)
 
 Found a clear assistant direction. Layer 25 separates assistant/non-assistant with 95% accuracy (Cohen's d = 7.08). The direction exists.
+
+**Outputs:**
+- `data/directions/assistant_directions.pt` — direction vector per layer
+- `data/directions/evaluation_results.pt` — holdout eval metrics
 
 ### [Phase 3: Additive Steering](docs/findings/phase3-steering.md)
 
@@ -55,4 +69,4 @@ Anthropic-style clamping at a single layer. Safe (preserves normal behavior) but
 
 ### [Phase 4b: Multi-Layer Clamping](docs/findings/phase4b-multilayer-clamping.md)
 
-Clamping across multiple layers simultaneously. **This works**: all-layers clamping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) particularly effective. Trade-off: more layers = stronger override but risk of output degradation.
+Clamping across multiple layers simultaneously. **This works**: all-layers clamping made a "chronic contrarian" give straightforward answers ("2+2 is 4, no ambiguity"). Middle layers (12-23) were most effective—interestingly, this differs from Anthropic's finding that late layers (70-90% depth) work best on larger models.
