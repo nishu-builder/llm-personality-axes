@@ -1,4 +1,4 @@
-# Phase 2 v2: Direction Discovery Across Models and Extraction Methods
+# Direction Discovery
 
 Tested two models (Qwen 2.5 3B, Llama 3.2 3B) with two extraction methods (last-token, response-mean).
 

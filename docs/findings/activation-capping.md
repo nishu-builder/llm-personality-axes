@@ -1,4 +1,4 @@
-# Phase 4 v2: Multi-Model Capping Results
+# Activation Capping
 
 Tested activation capping on both Qwen and Llama with directions from last-token extraction.
 

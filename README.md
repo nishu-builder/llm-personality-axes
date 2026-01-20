@@ -62,34 +62,30 @@ uncapped = capped.generate_uncapped(prompt)  # HAARP theories
 capped_out = capped.generate(prompt)         # Rayleigh scattering
 ```
 
-## How to use this repo
+## Scripts
 
-Each phase builds on the previous. Run them in order, or skip to the findings if you just want results.
-
-### Phase 1: Verify extraction works
 ```bash
+# 1. Verify extraction works
 python scripts/verify_extraction.py
-```
 
-### Phase 2: Find the direction
-```bash
-python scripts/run_phase2_v2.py --model qwen --use-response-mean
-python scripts/run_phase2_v2.py --model llama --use-response-mean
-python scripts/run_phase2_v2.py --model qwen  # last-token extraction
-python scripts/run_phase2_v2.py --model llama
-```
+# 2. Find the personality direction
+python scripts/find_direction.py --model qwen
+python scripts/find_direction.py --model llama
+python scripts/find_direction.py --model qwen --use-response-mean  # Anthropic-style
 
-### Phase 3: Test activation capping
-```bash
-python scripts/test_capping_v2.py --model qwen --threshold 3.0
-python scripts/test_capping_v2.py --model llama --threshold 2.0
+# 3. Test additive steering
+python scripts/test_steering.py --model qwen --scale 2.0
+
+# 4. Test activation capping
+python scripts/test_capping.py --model qwen --threshold 3.0
+python scripts/test_capping.py --model llama --threshold 2.0
 ```
 
 ## Findings
 
-### [Phase 2: Direction Discovery](docs/findings/phase2-direction-discovery.md)
+### [Direction Discovery](docs/findings/direction-discovery.md)
 
-Tested Qwen 2.5 3B and Llama 3.2 3B with both extraction methods. Key results:
+Both Qwen 2.5 3B and Llama 3.2 3B show clear assistant directions:
 
 | Model | Extraction | Best Layer | Cohen's d | Accuracy |
 |-------|-----------|------------|-----------|----------|
@@ -98,6 +94,10 @@ Tested Qwen 2.5 3B and Llama 3.2 3B with both extraction methods. Key results:
 | Llama | last_token | 13 | 5.54 | 97.5% |
 | Llama | response_mean | 17 | 6.58 | 97.5% |
 
-### [Phase 3: Activation Capping](docs/findings/phase3-capping.md)
+### [Additive Steering](docs/findings/additive-steering.md)
 
-Capping works on both models. Example: a conspiracy theorist persona asked "Why is the sky blue?" gives HAARP theories uncapped, but a clean Rayleigh scattering explanation when capped. Wide layer ranges (5-29 for Qwen) work better than narrow ranges.
+Additive steering (`activation + scale * direction`) is fragile on 3B models. Low scales have no visible effect; high scales cause incoherence before producing clean behavioral shifts.
+
+### [Activation Capping](docs/findings/activation-capping.md)
+
+Capping works much better. Example: a conspiracy theorist asked "Why is the sky blue?" gives HAARP theories uncapped, but a clean Rayleigh scattering explanation when capped. Wide layer ranges (5-29 for Qwen) are more effective than narrow ranges.
