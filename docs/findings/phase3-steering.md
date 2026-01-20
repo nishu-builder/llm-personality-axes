@@ -46,9 +46,39 @@ The direction clearly separates assistant/non-assistant in activation space (95%
 
 4. **Wrong layer for steering**: Layer 25 has best classification, but steering might work better at earlier layers (where "role framing" happens) rather than later layers (where behavior is more determined).
 
+## Extended Experiments
+
+Ran additional tests with higher scales and no system prompts.
+
+### High scales (layer 25, no system prompt)
+
+| Query | Scale | Effect |
+|-------|-------|--------|
+| Capital of France? | -50 | "Incorrect, the capital of France is not Paris. The capital of France is Paris." (incoherent) |
+| Tell me a joke | -50 | Rambling, strange phrasing |
+| Capital of France? | +20 | More direct, less elaboration |
+
+At extreme negative scales, the model becomes confused/contradictory rather than adopting a different persona. This suggests the direction affects coherence before cleanly shifting personality.
+
+### Layer 6 steering (early layer, no system prompt)
+
+| Query | Scale | Effect |
+|-------|-------|--------|
+| Capital of France? | +10 | Terse: "Paris" + brief explanation |
+| Capital of France? | +20 | "You are correct, the capital of France is Paris" (validating rather than answering) |
+| How to make eggs? | +20 | More structured, numbered steps |
+
+Layer 6 steering produces more visible effects at lower scales than layer 25. Early-layer steering may be more effective for behavioral change.
+
+## Conclusions
+
+1. **Steering works but is fragile**: High scales cause incoherence before producing clean behavioral shifts
+2. **Classification ≠ steering**: A direction that classifies well doesn't necessarily steer well
+3. **Layer matters**: Earlier layers (6) may be better for steering than the layer with best classification (25)
+4. **System prompts dominate**: Explicit persona instructions override activation-level steering at moderate scales
+
 ## Next Steps
 
-- Try much higher scales (10, 20, 50) and observe when behavior changes / breaks down
-- Try steering at earlier layers (5, 6 showed 97.5% accuracy in Phase 2)
-- Try steering without system prompts (just the query) to remove prompt dominance
-- Consider using the direction for clamping (as in Anthropic's paper) rather than additive steering
+- Try clamping (as in Anthropic's paper) rather than additive steering
+- Investigate layer 6 steering more systematically
+- Test on prompts without any system instruction to isolate steering effects

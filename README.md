@@ -30,6 +30,12 @@ Outputs:
 - `data/directions/assistant_directions.pt` - direction vector per layer
 - `data/directions/evaluation_results.pt` - holdout evaluation metrics
 
+### Phase 3: Validate steering
+```bash
+python scripts/run_phase3.py
+python scripts/run_phase3_extended.py  # high scales, layer comparison
+```
+
 ## Project Structure
 
 ```
@@ -44,8 +50,10 @@ src/assistant_axes/
 └── utils.py          # I/O helpers
 
 scripts/
-├── verify_extraction.py  # Phase 1 verification
-└── run_phase2.py         # Phase 2 pipeline
+├── verify_extraction.py   # Phase 1 verification
+├── run_phase2.py          # Phase 2 pipeline
+├── run_phase3.py          # Phase 3 steering
+└── run_phase3_extended.py # Extended steering experiments
 
 docs/
 ├── plans/            # Design documents
@@ -55,3 +63,4 @@ docs/
 ## Findings
 
 - [Phase 2: Assistant Axis Discovery](docs/findings/phase2-assistant-axis.md)
+- [Phase 3: Activation Steering](docs/findings/phase3-steering.md)
