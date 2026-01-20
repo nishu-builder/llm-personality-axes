@@ -50,4 +50,4 @@ Additive steering is fragile. Low scales do nothing visible; high scales cause i
 
 ### [Phase 4: Clamping](docs/findings/phase4-clamping.md)
 
-Anthropic-style clamping is safe (doesn't hurt normal behavior) but can't override explicit system prompt personas. Clamping is designed for preventing drift, not for overriding instructions baked into the prompt.
+Anthropic-style clamping at a single layer didn't override explicit system prompt personas at tested thresholds. Preserves normal assistant behavior. Open question whether multi-layer or more aggressive clamping would work.

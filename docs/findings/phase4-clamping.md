@@ -31,12 +31,24 @@ Thresholds tested:
 
 ### Non-assistant prompts with system instruction
 
-Clamping does NOT override explicit persona instructions. Even aggressive clamping (threshold=13.3) leaves:
+Clamping did not override explicit persona instructions at the thresholds we tested. Even aggressive clamping (threshold=13.3) left:
 - Wandering poet still speaking in riddles
 - Contrarian still disagreeing
 - Conspiracy theorist still connecting dots
 
-**Why?** The system prompt is in the text. The model "knows" from reading it that it should be a poet/contrarian. This knowledge is baked into activations before generation starts. Clamping during generation can't undo what the model learned from the prompt.
+**Hypotheses for why clamping didn't work here:**
+
+1. **Single-layer intervention is insufficient**: We only clamped at layer 25. The persona may be encoded across multiple layers, requiring coordinated intervention.
+
+2. **Threshold not aggressive enough**: Our most aggressive threshold (13.3) pushed projections to the assistant mean. Higher thresholds might produce visible effects (though risk incoherence).
+
+3. **Direction captures correlation, not causation**: The mean difference vector distinguishes the categories but may not represent the causal mechanism that produces the behavior.
+
+4. **Persona is high-dimensional**: The model may implement personas using many directions, not just projection onto our single axis. Clamping one direction leaves others free.
+
+5. **Residual stream vs attention patterns**: Clamping residual stream activations may not affect attention patterns that were already computed based on the system prompt.
+
+We haven't ruled out that stronger or multi-layer clamping could override explicit prompts.
 
 ### Bare prompts (no system instruction)
 
@@ -48,7 +60,12 @@ Clamping preserves behavior perfectly. Outputs are essentially identical across 
 
 ## Conclusions
 
-1. **Clamping is safe**: Doesn't degrade normal assistant behavior
-2. **Clamping can't override explicit prompts**: System prompt instructions dominate over activation-level intervention
-3. **Anthropic's use case is different**: They used clamping for "persona drift" during long conversations, not for overriding explicit persona instructions
-4. **Potential application**: Clamping might help with subtle drift in extended conversations where no explicit non-assistant persona is present
+1. **Clamping is safe**: At tested thresholds, it doesn't degrade normal assistant behavior
+2. **Single-layer clamping didn't override explicit prompts**: At tested thresholds, system prompt personas persisted. Whether stronger intervention would work remains untested.
+3. **Anthropic's use case may be different**: They described using clamping for "persona drift" during conversations, which may be a weaker effect than explicit persona instructions
+
+## Open Questions
+
+- Would clamping across multiple layers simultaneously be more effective?
+- Is there a threshold high enough to override personas without causing incoherence?
+- Does the direction we found capture the causal mechanism, or just a correlate?
