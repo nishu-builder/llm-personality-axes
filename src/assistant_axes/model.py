@@ -2,7 +2,7 @@ import torch
 from transformer_lens import HookedTransformer
 
 
-MODEL_NAME = "meta-llama/Llama-3.2-3B-Instruct"
+MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
 
 
 def get_device() -> str:
