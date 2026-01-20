@@ -99,6 +99,7 @@ artifacts/
     direction_eval_qwen_last_token.pt
     direction_eval_llama_last_token.pt
   responses/            # Full contrastive response data
+    qwen_responses.json
 ```
 
 Direction files contain `dict[int, torch.Tensor]` mapping layer index to steering vector. Evaluation files contain Cohen's d, accuracy, and projection statistics per layer.
